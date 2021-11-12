@@ -1,0 +1,58 @@
+<!--pages/order/order.wxml-->
+<!-- 售后订单列表 -->
+<view class="myOrderHeader">
+  <block wx:for="{{['所有订单','待审核','已完成','已驳回']}}" wx:key="title">
+    <view class="titles {{index == currentTab?'active':''}}" bindtap="changeTab" data-index="{{index}}">
+      {{item}}
+      <view class="lines"><image class="imgSty" mode="scaleToFill" src="/image/order/lines.svg"></image></view>
+    </view>
+  </block>
+</view>
+
+<!-- 我的订单 元素  -->
+<view class="myOrderMain">
+  <!-- 订单元素 -->
+  <view class="orderItem" wx:for="{{orderList}}" wx:key="orders">
+    <!-- 内层盒子 -->
+    <view class="itemInfo">
+      <!-- 头部时间订单状态 -->
+      <view class="timerOrderStart">
+        <view class="timer">{{item.applyTime}}</view>
+        <view class="orderStart">{{item.statusExplain}}</view>
+      </view>
+
+      <!-- 中间商品信息 -->
+      <view class="orderGoodsInfo">
+        <!-- 图片盒子 多个商品-->
+        <view class="leftImgAll" wx:if="{{item.orderAfterSaleGoodsList.length > 1}}">
+          <!-- 图片 -->
+          <view class="orderImg" wx:for="{{item.orderAfterSaleGoodsList}}" wx:key="images">
+            <image class="imgSty" mode="scaleToFill" src="{{item.goodsThumb}}"/>
+          </view>
+        </view>
+        <!-- 单个商品 -->
+        <view class="leftImg" wx:else>
+          <!-- 图片 -->
+          <view class="orderImg"><image class="imgSty" mode="scaleToFill" src="{{item.orderAfterSaleGoodsList[0].goodsThumb}}"></image></view>
+          <!-- 商品名称信息 -->
+          <view class="goodsNamesNums">
+            <view class="goodsNames">{{item.orderAfterSaleGoodsList[0].title}}</view>
+            <view class="goodsNums">x{{item.orderAfterSaleGoodsList[0].quantity}}</view>
+          </view>
+        </view>
+        <!-- 右边查看 -->
+        <view class="loopMore" bindtap="toOrderInfo" data-id="{{item.id}}">
+          <view class="text1">共{{item.orderAfterSaleGoodsList[0].quantity}}件</view>
+          <view class="icons"> <image class="imgSty" mode="scaleToFill" src="/image/applyafterorder/rightMore.svg"></image> </view>
+        </view>
+      </view>
+
+      <!-- 下面的金额 订单按钮 -->
+      <view class="moneyBtn">
+        <view class="orderMoney">合计金额 <text>￥{{item.moneyReturned}}</text></view>
+        <view class="orderBtn" bindtap="toOrderInfo"  data-id="{{item.id}}">订单详情</view>
+      </view>
+
+    </view>
+  </view>
+</view>

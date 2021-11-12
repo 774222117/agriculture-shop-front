@@ -1,0 +1,245 @@
+/* pages/couponlist/couponlist.wxss */
+.top {
+	width: 750rpx;
+	height: 88rpx;
+	background-color: #ffffff;
+	display: flex;
+	align-items: center;
+}
+/* 输入框 */
+.top input {
+	width: 594rpx;
+	height: 60rpx;
+	opacity: 1;
+	background: rgba(60,60,67,0.06);
+	border-radius: 200rpx;
+	margin-left: 20rpx;
+	padding-left: 32rpx;
+}
+/* 兑换 */
+.top .exchangeTest {
+	width: 56rpx;
+	height: 40rpx;
+	opacity: 1;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: LEFT;
+	color: #000000;
+	margin-left: 40rpx;
+}
+/* 优惠券选项 */
+.choice {
+	width: 750rpx;
+	height: 88rpx;
+	display: flex;
+	justify-content: space-between;
+	background-color: #ffffff;
+}
+/* 待使用 */
+.choice .toBeUse {
+	width: 248rpx;
+	height: 88rpx;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+/* 已使用 */
+.choice .used{
+	width: 248rpx;
+	height: 88rpx;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+/* 已过期 */
+.choice .overdue{
+	width: 248rpx;
+	height: 88rpx;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+.choice .introd {
+	width: 124rpx;
+	height: 64rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+/* 底部绿色条 */
+.bottomLine {
+	width: 70rpx;
+	height: 6rpx;
+	opacity: 1;
+	background-color: #91c43d;
+	border-radius: 10rpx;
+}
+/* 选中 */
+.ischange {display: block;}
+/* 未选中 */
+.unchange {display: none;}
+/* 有绿色条 */
+.isGreen {
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: LEFT;
+	color: #91c43d;
+	line-height: 44rpx;
+}
+/* 没有绿色条 */
+.unGreen {
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: LEFT;
+	color: rgba(60,60,67,0.65);
+	line-height: 44rpx;
+}
+/* 待使用 */
+.couponBox-toUse {
+	width: 710rpx;
+	height: 1158rpx;
+	/* border: 1rpx red solid; */
+	margin: 6rpx 0 0 20rpx;
+	overflow: hidden;
+	overflow-y: auto;
+}
+/* 已使用 */
+.conponBox-used {
+	width: 710rpx;
+	height: 1158rpx;
+	/* border: 1rpx red solid; */
+	margin: 6rpx 0 0 20rpx;
+	overflow: hidden;
+	overflow-y: auto;
+}
+/* 已过期 */
+.conponBox-overdue {
+	width: 710rpx;
+	height: 1158rpx;
+	/* border: 1rpx red solid; */
+	margin: 6rpx 0 0 20rpx;
+	overflow: hidden;
+	overflow-y: auto;
+}
+/* 单个优惠券 */
+.couponItem {
+	width: 710rpx;
+	height: 212rpx;
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzU1IiBoZWlnaHQ9IjEwNiIgdmlld0JveD0iMCAwIDM1NSAxMDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOCAwSDg5LjAyNzVDODkuMjc2MiAyLjI0OTk3IDkxLjE4MzcgNCA5My41IDRDOTUuODE2MyA0IDk3LjcyMzggMi4yNDk5NyA5Ny45NzI1IDBIMzQ3QzM1MS40MTggMCAzNTUgMy41ODE3MyAzNTUgOFY5OEMzNTUgMTAyLjQxOCAzNTEuNDE4IDEwNiAzNDcgMTA2SDk3Ljk3MjVDOTcuNzIzOCAxMDMuNzUgOTUuODE2MyAxMDIgOTMuNSAxMDJDOTEuMTgzNyAxMDIgODkuMjc2MiAxMDMuNzUgODkuMDI3NSAxMDZIOEMzLjU4MTcyIDEwNiAwIDEwMi40MTggMCA5OFY4QzAgMy41ODE3MyAzLjU4MTcyIDAgOCAwWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==);
+	background-size: cover;
+	display: flex;
+	margin-top: 16rpx;
+}
+/* 优惠券图片 */
+.couponItem .imgPic {
+	width: 164rpx;
+	height: 188rpx;
+	opacity: 1;
+	border-radius: 16rpx;
+	margin: 12rpx 0 0 12rpx;
+}
+/* 橙色 */
+.isBuy {background-color: #fef0e7;}
+/* 绿色 */
+.unBuy {background-color: #f4f9eb;}
+.couponItem .conponInfo {
+	width: 464rpx;
+	height: 144rpx;
+	margin: 40rpx 0 0 50rpx;
+	/* display: flex; */
+	align-items: center;
+	position: relative;
+}
+/* 优惠券金额 */
+.couponItem .imgPic .price {
+	width: 82rpx;
+	height: 52rpx;
+	display: flex;
+	align-items: flex-end;
+	font-size: 36rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: center;
+	color: #f37920;
+	line-height: 52rpx;
+	margin: 50rpx 0 0 40rpx;
+}
+/* 优惠券类型 */
+.couponItem .imgPic .priceInfo {
+	font-size: 22rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: #f37920;
+	line-height: 40rpx;
+}
+/* 优惠券名称 */
+.couponItem .conponAttribute .conponName {
+	width: 252rpx;
+	height: 44rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: left;
+	color: rgba(0,0,0,0.85);
+	line-height: 44rpx;
+}
+/* 优惠券类型 */
+.couponItem .conponAttribute .conponType {
+	width: 150rpx;
+	height: 44rpx;
+	border-radius: 26rpx;
+	border: 1rpx #AAD169 solid;
+	font-size: 22rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: #aad169;
+	line-height: 40rpx;
+	margin-top: 6rpx;
+}
+/* 优惠券时间 */
+.couponItem .conponAttribute .conponTime {
+	/* width: 256rpx; */
+	height: 40rpx;
+	margin-top: 14rpx;
+	font-size: 22rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: left;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+}
+/* 优惠券使用 */
+.couponItem .use {
+	width: 186rpx;
+	height: 56rpx;
+	background-color: #91c43d;
+	border-radius: 56rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: CENTER;
+	color: #ffffff;
+	line-height: 52rpx;
+	position: absolute;
+	top: 48rpx;
+	right: -10rpx;
+}
+.couponItem .usedPic {
+	width: 170rpx;
+	height: 270rpx;
+	margin: -72rpx 0 0 80rpx;
+	position: absolute;
+	top: -62rpx;
+	right: -40rpx;
+}
+.couponItem .usedPic image{width: 100%;height: 100%;}
+/* 过期 */
+.isOverdue {
+	opacity: 0.5;
+}

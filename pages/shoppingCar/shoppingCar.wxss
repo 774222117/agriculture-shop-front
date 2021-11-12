@@ -1,0 +1,184 @@
+/* pages/shoppingCar/shoppingCar.wxss */
+.shopMain {
+	width: 710rpx;
+	margin: 20rpx 0 0 20rpx;
+	padding-bottom: 20rpx;
+	border-radius: 16rpx;
+	background-color: #ffffff;
+	margin-bottom: 200rpx;
+}
+/* 商品盒子 */
+.shopMain .goodsItemBox {
+	width: 710rpx;
+	height: 192rpx;
+	display: flex;
+	margin-top: 16rpx;
+	align-items: center;
+}
+/* 选中状态 */
+.shopMain .goodsItemBox .point {
+	width: 96rpx;
+	height: 96rpx;
+}
+/* 未选中当前商品 */
+.shopMain .goodsItemBox .unActive {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iOC41IiBzdHJva2U9IiM5MUM0M0QiLz4KPHBhdGggZD0iTTIxIDI0LjVMMjMuNSAyN0wyOC41IDIyIiBzdHJva2U9IndoaXRlIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==);
+	/* background-size: 96rpx 96rpx; */
+}
+/* 选中当前商品 */
+.shopMain .goodsItemBox .isActive {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iOSIgZmlsbD0iIzkxQzQzRCIvPgo8cGF0aCBkPSJNMjEgMjQuNUwyMy41IDI3TDI4LjUgMjIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K);
+}
+/* 商品图片 */
+.shopMain .goodsItemBox .imgPic {
+	width: 144rpx;
+	height: 144rpx;
+} 
+/* 商品右侧信息 */
+.shopMain .goodsItemBox .goodsInfoBox {
+	width: 470rpx;
+	height: 192rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+/* 商品名称 */
+.goodsInfoBox .name{
+	width: 454rpx;
+	height: 44rpx;
+	margin-top: -20rpx;
+	margin-left: 16rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: LEFT;
+	color: rgba(0,0,0,0.85);
+	line-height: 44rpx;
+}
+/* 商品价格信息 */
+.goodsInfoBox .price{
+	width: 452rpx;
+	height: 48rpx;
+	margin-left: 16rpx;
+	margin-bottom: -22rpx;
+	display: flex;
+	align-items: flex-end;
+}
+/* 售价 */
+.price .newPrice{
+	min-width: 74rpx;
+	height: 52rpx;
+	display: flex;
+	align-items: flex-end;
+	font-size: 36rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: LEFT;
+	color: #f37920;
+	line-height: 48rpx;
+}
+/* 原价 */
+.price .oldPrice{
+	width: 70rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+	margin-left: 16rpx;
+}
+/* 减少商品 */
+.price .reduce{
+	width: 48rpx;
+	height: 48rpx;
+	margin-left: 114rpx;
+}
+.reduce image{width: 100%;height: 100%;display: block;}
+/* 商品数量 */
+.price .num{
+	width: 44rpx;
+	height: 44rpx;
+	margin-left: 12rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(0,0,0,0.85);
+	line-height: 44rpx;
+}
+/* 添加商品 */
+.price .add{
+	width: 48rpx;
+	height: 48rpx;
+	margin-left: 12rpx;
+}
+.add image{width: 100%;height: 100%;display: block;}
+/* 结算 */
+.calculate {
+	width: 750rpx;
+	height: 114rpx;
+	position: fixed;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	background-color: #ffffff;
+}
+/* 结算全选图标 */
+.calculate .point {
+	width: 96rpx;
+	height: 96rpx;
+}
+
+.calculate .point image{width: 100%;height: 100%;display: block;}
+/* 全选 */
+.calculate .bothChange{
+	width: 100rpx;
+	height: 40rpx;
+	margin-left: -30rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(0,0,0,0.85);
+	line-height: 40rpx;
+}
+/* 合计 */
+.calculate .total{
+	width: 80rpx;
+	height: 40rpx;
+	font-size: 22rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+	margin-left: 140rpx;
+}
+/* 总价 */
+.calculate .price{
+	width: 120rpx;
+	height: 52rpx;
+	display: flex;
+	align-items: center;
+	font-size: 36rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: LEFT;
+	color: #f37920;
+	line-height: 52rpx;
+}
+/* 去结算 */
+#payfor{
+	width: 224rpx;
+	height: 80rpx;
+	background: #91c43d;
+	border-radius: 66rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Medium;
+	font-weight: 500;
+	text-align: CENTER;
+	color: #ffffff;
+	line-height: 46rpx;
+}

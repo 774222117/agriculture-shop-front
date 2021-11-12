@@ -1,0 +1,87 @@
+<!--列表页-->
+<view class="container">
+	<!-- 搜索商品框 -->
+	<view class="serachGoodsBox">
+		<!-- 搜索商品 -->
+		<view class="serachGoods">
+			<!-- 搜索pic -->
+			<view class="serachPic">
+				<image src="../../image/search/serach.svg"/>
+			</view>
+			<!-- 搜索输入框 -->
+			<input type="text" class="inputGoods" placeholder="搜索商品" confirm-type="search" bindconfirm="gotoSearch"/>
+		</view>
+	</view>
+	<!-- 分类详情框 -->
+	<view class="categoryBox">
+		<!-- 左边类型选项 -->
+		<view class="leftOption">
+			<!-- 滚动到顶部/左边时触发 upper--><!-- 滚动到底部/右边时触发 lower-->
+			<scroll-view scroll-y="true" style="height:{{heightCategory}}px">
+          <!-- 商品类型选择 -->
+				<view wx:key="category" wx:for="{{categories}}" class="changeType {{categoryId == item.id ? 'ischange':''}}"
+						id="{{'cate' + item.id}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="touchCategory">
+					{{item.title}}
+				</view>
+			</scroll-view>
+		</view>
+		<!-- 右边商品选项 -->
+		<view class="rightOption">
+			<!-- 默认排序，销量，价格 -->
+			<view class="titleSort">
+				<!-- 默认排序 -->
+				<view class="sort isSort">默认排序</view>
+			</view>
+			<!-- 商品详情盒子 -->
+			<scroll-view class="goodsItemBox" scroll-y="true" style="height: {{heightGoods}}px" scroll-with-animation
+						 bindscrolltolower="onLower" scroll-into-view="theFirst{{firstId}}">
+				<block wx:key="goods" wx:for="{{goodsInfos}}" >
+					<view class="goodsItem" id="theFirst{{item.id}}">
+						<!-- 左边图片 -->
+						<image class="leftImg" id="goods{{index}}" data-id="{{item.id}}" src="{{item.thumb}}" bindtap="touchGoods"/>
+						<!-- 游戏商品信息 -->
+						<view class="rightInfo">
+							<!-- 商品名称 -->
+							<view class="goodsName" data-id="{{item.id}}" bindtap="touchGoods">
+								<!-- 扶贫 -->
+								<text wx:if="{{item.helpPoor == 1}}" class="poverty">帮促</text>
+								{{item.title}}
+							</view>
+							<!-- 商品卖点 -->
+							<view class="sellingPoint">{{item.subtitle}}</view>
+							<!-- 价格销售价格盒子 -->
+							<view class="goodsSellBox">
+								<!-- 左边价格和销量 -->
+								<view class="goodsPriceBox">
+									<!-- 价格 -->
+									<view class="goodsPri">
+										¥<view class="bigPirce">{{item.marketPrice}}</view>
+									</view>
+									<!-- 销量 -->
+									<view class="goodsSell">月销量:{{item.salesReal}}</view>
+								</view>
+								<!-- 右边添加按钮 -->
+								<view class="btnBoxs">
+									<view class="cutBtn" data-info="{{item}}" bindtap="delCart" wx:if="{{item.buyCount > 0}}">
+										<image class="cutBtnImg" src="../../image/category/cutBtn.svg"></image>
+									</view>
+									<view class="goodsNums">
+										{{item.buyCount}}
+									</view>
+									<view class="addBtn" data-info="{{item}}" bindtap="addCart">
+										<image class="addBtnImg" src="../../image/category/addBtn.svg"></image>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</block>
+				<view wx:if="{{!dataHas}}" class="bottomLoad" bindtap="onNext">
+					点击浏览下一个分类
+				</view>
+				<view wx:else style="height: 50rpx;">
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+</view>

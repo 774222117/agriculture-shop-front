@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/goods/goods",
+    "pages/shoppingCar/shoppingCar",
+    "pages/order/order",
+    "pages/orderInfo/orderInfo",
+    "pages/login/login",
+    "pages/myIndex/myIndex",
+    "pages/myBalance/myBalance",
+    "pages/paySuccess/paySuccess",
+    "pages/search/search",
+    "pages/orderpay/orderpay",
+    "pages/mycoupon/mycoupon",
+    "pages/couponlist/couponlist",
+    "pages/expressinfo/expressinfo",
+    "pages/afterorder/afterorder",
+    "pages/bindingphone/bindingphone",
+    "pages/afterorderlist/afterorderlist",
+    "pages/applyafterorder/applyafterorder",
+    "pages/promotion/promotion"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "鲜丰汇",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/tabBar/indexOff.png",
+        "selectedIconPath": "image/tabBar/indexOn.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "image/tabBar/categoryOff.png",
+        "selectedIconPath": "image/tabBar/categoryOn.png"
+      },
+      {
+        "pagePath": "pages/shoppingCar/shoppingCar",
+        "text": "购物车",
+        "iconPath": "image/tabBar/carOff.png",
+        "selectedIconPath": "image/tabBar/carOn.png"
+      },
+      {
+        "pagePath": "pages/myIndex/myIndex",
+        "text": "我的",
+        "iconPath": "image/tabBar/userOff.png",
+        "selectedIconPath": "image/tabBar/userOn.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

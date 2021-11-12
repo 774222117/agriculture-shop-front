@@ -1,0 +1,444 @@
+/* pages/myIndex/myIndex.wxss */
+.top{
+	width: 750rpx;
+	height: 142rpx;
+	display: flex;
+	background-color: #ffffff;
+}
+/* 用户头像 */
+.top .userImg {
+	width: 100rpx;
+	height: 100rpx;
+	opacity: 1;
+	background: #ebad20;
+	border-radius: 50%;
+	margin: 24rpx 0 0 40rpx;
+}
+/* 用户信息 */
+.top .userInfo {
+	width: 354rpx;
+	height: 92rpx;
+	margin: 24rpx 0 0 24rpx;
+}
+/* 用户名称 */
+.top .userInfo .name {
+	min-width: 204rpx;
+	height: 52rpx;
+	font-size: 36rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: left;
+	color: rgba(0,0,0,0.85);
+	line-height: 52rpx;
+}
+/* 用户类型 */
+.top .userInfo .nameType {
+	width: 96rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: CENTER;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+}
+/* 联系客服 */
+.top .customerService {
+	width: 88rpx;
+	height: 108rpx;
+	opacity: 1;
+	margin: 8rpx 0 0 104rpx;
+}
+/* 联系客服图片 */
+.top .customerService .bgImg {
+	width: 88rpx;
+	height: 78rpx;
+}
+.top .customerService .text1 {
+	width: 88rpx;
+	height: 30rpx;
+	font-size: 22rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(0,0,0,0.85);
+	line-height: 20rpx;
+}
+/* 余额和优惠券 */
+.account {
+	width: 710rpx;
+	height: 224rpx;
+	background: #ffffff;
+	border-radius: 16rpx;
+	margin: 16rpx 0 0 20rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+/* 左边余额 */
+.account .leftBox {
+	width: 346rpx;
+	height: 224rpx;
+	opacity: 1;
+}
+.leftBox .text2 {
+	width: 48rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+	margin: 36rpx 0 0 150rpx;
+}
+/* 余额 */
+.leftBox .balance {
+	width: 118rpx;
+	height: 48rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: center;
+	color: rgba(0,0,0,0.85);
+	line-height: 48rpx;
+	margin-left: 110rpx;
+}
+/* 充值 */
+.leftBox .recharge {
+	width: 160rpx;
+	height: 48rpx;
+	opacity: 1;
+	background-color: #91c43d;
+	border-radius: 24rpx;
+	margin: 16rpx 0 0 94rpx;
+	display: flex;
+	align-items: center;
+}
+.leftBox .recharge .text3 {
+	width: 48rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Medium;
+	font-weight: 500;
+	text-align: center;
+	color: #ffffff;
+	line-height: 40rpx;
+	margin-left: 44rpx;
+}
+.leftBox .recharge .rechargeImg {
+	width: 32rpx;
+	height: 32rpx;
+}
+/* 中间竖线 */
+.account .center {
+	width: 0rpx;
+	height: 120rpx;
+	opacity: 1;
+	border: 1rpx solid rgba(60,60,67,0.15);
+}
+.text11 {
+	font-size: 32rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: center;
+	color: rgba(0,0,0,0.85);
+	line-height: 48rpx;
+}
+/* 右边优惠券 */
+.account .rightBox {
+	width: 346rpx;
+	height: 224rpx;
+	opacity: 1;
+}
+/* 优惠券 */
+.account .rightBox .coupon {
+	width: 72rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+	margin: 36rpx 0 0 138rpx;
+}
+/* 数量 */
+.account .rightBox .num {
+	width: 20rpx;
+	height: 48rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: center;
+	color: rgba(0,0,0,0.85);
+	line-height: 48rpx;
+	margin-left: 162rpx;
+}
+/* 查看 */
+.account .rightBox .watch {
+	width: 160rpx;
+	height: 48rpx;
+	opacity: 1;
+	background-color: #f37920;
+	border-radius: 24rpx;
+	margin: 16rpx 0 0 104rpx;
+	display: flex;
+	align-items: center;
+}
+.rightBox .watch .text3 {
+	width: 48rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Medium;
+	font-weight: 500;
+	text-align: center;
+	color: #ffffff;
+	line-height: 40rpx;
+	margin-left: 44rpx;
+}
+.rightBox .watch .rechargeImg {
+	width: 32rpx;
+	height: 32rpx;
+	margin-top: 2rpx;
+}
+
+/* 我的订单 */
+.myOrderBox {
+	width: 710rpx;
+	height: 256rpx;
+	opacity: 1;
+	background: #ffffff;
+	border-radius: 16rpx;
+	margin: 18rpx 0 0 20rpx;
+	display: flex;
+	flex-direction: column;
+}
+.myOrderBox .textOrder {
+	width: 670rpx;
+	height: 48rpx;
+	margin: 20rpx 0 0 20rpx;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.textOrder .page1 {
+	width: 96rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: CENTER;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+	margin-left: 420rpx;
+}
+.textOrder .watchOrder {
+	width: 88rpx;
+	height: 88rpx;
+	position: absolute;
+	right: -28rpx;
+}
+.textOrder .watchOrder image{width: 100%;height: 100%;display: block;}
+/* 订单选项 */
+.myOrderBox .orderChange {
+	width: 710rpx;
+	height: 136rpx;
+	margin-top: 20rpx;
+	display: flex;
+	justify-content: space-between;
+}
+/* 待付款 */
+.orderChange .waitPay {
+	width: 162rpx;
+	height: 136rpx;
+	opacity: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.waitPay .payItem {
+	width: 72rpx;
+	height: 104rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.payItem .payImg {
+	width: 56rpx;
+	height: 56rpx;
+	opacity: 1;
+	position: relative;
+}
+/* 待付款数量 */
+.payItem .payImg .payNum{
+	width: 36rpx;
+	height: 36rpx;
+	opacity: 1;
+	background: #ff3b30;
+	border: 2rpx solid #ffffff;
+	border-radius: 50%;
+	position: absolute;
+	top: -18rpx;
+	right: -18rpx;
+	font-size: 22rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: #ffffff;
+	line-height: 30rpx;
+	
+}
+.payItem .payImg image {width: 100%;height: 100%;display: block;}
+.payItem .pay1 {
+	width: 72rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+	margin-top: 8rpx;
+}
+/* 待收货 */
+.orderChange .waitGet {
+	width: 162rpx;
+	height: 136rpx;
+	opacity: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.waitGet .GetItem {
+	width: 72rpx;
+	height: 104rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.waitGet .GetImg {
+	width: 56rpx;
+	height: 56rpx;
+	opacity: 1;
+	position: relative;
+}
+/* 待收货数量 */
+.waitGet .GetImg .payNum {
+	width: 36rpx;
+	height: 36rpx;
+	opacity: 1;
+	background: #ff3b30;
+	border: 2rpx solid #ffffff;
+	border-radius: 50%;
+	position: absolute;
+	top: -18rpx;
+	right: -18rpx;
+	font-size: 22rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: #ffffff;
+	line-height: 30rpx;
+	position: absolute;
+}
+.ischange {display: block;}
+.unchange {display: none;}
+.waitGet .pay2 {
+	width: 72rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+	margin-top: 8rpx;
+}
+.waitGet .GetImg image {width: 100%;height: 100%;display: block;}
+/* 已完成 */
+.orderChange .finish {
+	width: 162rpx;
+	height: 136rpx;
+	opacity: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.finish .finishItem {
+	width: 72rpx;
+	height: 104rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.finishImg {
+	width: 56rpx;
+	height: 56rpx;
+	opacity: 1;
+}
+.finishImg image {width: 100%;height: 100%;display: block;}
+.finishItem .pay3 {
+	width: 96rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+	margin-top: 8rpx;
+}
+/* 售后服务 */
+.orderChange .service {
+	width: 162rpx;
+	height: 136rpx;
+	opacity: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.service .serviceItem {
+	width: 72rpx;
+	height: 104rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.serviceImg {
+	width: 56rpx;
+	height: 56rpx;
+	opacity: 1;
+}
+.serviceImg image {width: 100%;height: 100%;display: block;}
+.serviceItem .pay4 {
+	width: 96rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+	margin-top: 8rpx;
+}
+/* 我的  下面活动推荐 */
+.activity{
+  width: calc(100% - 40rpx);
+  height: 156rpx;
+  margin: 14rpx 0 0 20rpx;
+  border-radius: 16rpx;
+}
+.contact_button{
+  color: white;
+  background-color: transparent;
+  padding: 0;
+  line-height: 60rpx;
+  border: none;
+	outline: none;
+	display: flex;
+	flex-direction: column;
+}
+.contact_button::after{
+  border: none;
+}

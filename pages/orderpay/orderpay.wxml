@@ -1,0 +1,99 @@
+<!--pages/orderpay/orderpay.wxml-->
+<!-- 下单页地址选中 -->
+<view class="address" catchtap="chooeAddress">
+  <!-- 左边icon -->
+  <view class="icons"><image class="imgSty" mode="scaleToFill" src="/image/orderpay/address.svg"></image></view>
+  <!-- 中间地址 -->
+  <view class="addressPeople">
+    <view class="text1">{{detailInfo}}</view>
+    <view class="text2">{{pickerName}} {{pickerMobile}}</view>
+  </view>
+  <!-- 右边更多 -->
+  <view class="more"><image class="imgSty" mode="scaleToFill" src="/image/orderpay/more.svg"></image></view>
+</view>
+
+<!-- 商品展示 -->
+<view class="goodsContents">
+  <!-- 商品元素 -->
+  <view class="itemContents {{lookmore == true ?'isActive':''}}">
+    <view class="item" wx:for="{{shopCart}}" wx:if="{{item.isChoosed}}" wx:key="shopCart">
+      <view class="imgs"><image class="imgSty" mode="scaleToFill" src="{{item.goodsThumb}}"></image></view>
+      <view class="nameAndPrice">
+        <view class="name">{{item.title}}</view>
+        <view class="price"><text class="text1">￥</text><text class="text2">{{item.realPrice}}</text> </view>
+      </view>
+      <view class="goodsNum">{{item.total}}</view>
+    </view>
+  </view>
+  
+  <!-- 查看更多 -->
+  <view class="lookMore" bindtap="develop">
+    <view class="btns">
+      <view class="text1">共{{cartTotal.buyCount}}件</view>
+      <view class="imgs"><image class="imgSty" mode="scaleToFill" src="/image/orderpay/moreDown.svg"></image></view>
+    </view>
+  </view>
+</view>
+
+<!-- 费用与券 -->
+<view class="costAndCoupons">
+  <!-- 配送费 -->
+  <!-- <view class="pubSty delivery">
+    <view class="leftText">配送费</view>
+    <view class="rightText">¥6.00</view>
+  </view> -->
+  <!-- 商品总额 -->
+  <view class="pubSty totalPrice">
+    <view class="leftText">商品总额</view>
+    <view class="rightText">¥{{cartTotal.sumPrice}}</view>
+  </view>
+  <!-- 优惠券 -->
+  <view class="pubSty coupons">
+    <view class="leftText">优惠券/兑换券</view>
+    <view class="rightText textColor" catchtap="toChooseCoupon">{{couponDetail}} <view class="imgs"><image class="imgSty" mode="scaleToFill" src="/image/orderpay/moreRight.svg"></image></view> </view>
+  </view>
+</view>
+
+<!-- 支付方式 -->
+<view class="payment">
+  <!-- 余额 -->
+  <view class="balance">
+    <view class="balanceLeft">
+      <view class="text1">账户余额</view>
+      <view class="text2">{{peopleBalance}}</view>
+      <view class="text3" wx:if="{{isShowBalanceRecharge}}" bindtap="toMyBalance">余额充值</view>
+    </view>
+    <view class="balanceRight">
+      <view class="isActive" bindtap="changePayment" data-isRadio="1">
+        <image wx:if="{{payType == 1}}" class="imgSty" mode="scaleToFill" src="/image/orderpay/radioActive.svg"></image>
+        <image wx:else class="imgSty" mode="scaleToFill" src="/image/orderpay/radio.svg"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 微信 -->
+  <view class="weChat">
+    <view class="weChatLeft">
+      <view class="text1">微信支付</view>
+    </view>
+    <view class="weChatRight">
+      <view class="isActive" bindtap="changePayment" data-isRadio="2">
+        <image wx:if="{{payType == 2}}" class="imgSty" mode="scaleToFill" src="/image/orderpay/radioActive.svg"></image>
+        <image wx:else class="imgSty" mode="scaleToFill" src="/image/orderpay/radio.svg"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 去支付 -->
+<view class="goPayment" catchtap="btnPay">
+  <view class="goPaymentBtn">
+    {{payType == 1? '继续支付' :'微信支付'}} ¥{{payAmount}}
+  </view>
+</view>
+
+<!--取消支付-->
+<view class="cancelPayment" catchtap="cancelBtnPay">
+  <view class="cancelPaymentBtn">
+    取消支付
+  </view>
+</view>

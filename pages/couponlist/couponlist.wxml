@@ -1,0 +1,124 @@
+<wxs module="getDate" src="../../utils/dateParse.wxs"></wxs>
+<!--优惠券列表-->
+<view class="top">
+	<input type="text" placeholder="请输入兑换码" bindinput="getExchangeCode"/>
+	<view class="exchangeTest" bindtap="exchangeCoupon">兑换</view>
+</view>
+<!-- 优惠券选项 -->
+<view class="choice">
+	<!-- 待使用 -->
+	<view class="toBeUse" >
+		<view class="introd" >
+			<!-- 选项   isGreen为选中时，unGreen为没选中 -->
+			<view class="text {{unUsedGreenIsShow}}" bindtap="getUnUsedCouponList" bindtap="clickUnusedTab">待使用({{unusedCounts}})</view>
+			<!-- 选中的底部绿色条，ischange为选中，unchange为未选中 -->
+			<view class="bottomLine {{unUsedBottomIsShow}}"></view>
+		</view>
+	</view>
+	<!-- 已使用 -->
+	<view class="used">
+		<view class="introd">
+			<view class="text {{usedGreenIsShow}}" bindtap="clickUsedTab">已使用({{usedCounts}})</view>
+			<view class="bottomLine {{usedBottomIsShow}}"></view>
+		</view>
+	</view>
+	<!-- 已过期 -->
+	<view class="overdue">
+		<view class="introd">
+			<view class="text {{invalidGreenIsShow}}" bindtap="clickInvalidTab">已过期({{invalidCounts}})</view>
+			<view class="bottomLine {{invalidBottomIsShow}}"></view>
+		</view>
+	</view>
+</view>
+<!-- 优惠券详情 -->
+<!-- 点击待使用  ischange显示优惠券   unchange不显示-->
+<view class="couponBox-toUse {{unusedIsShow}}">
+	<!-- 单个优惠券 -->
+	<view class="couponItem" wx:for="{{unUsedCouponList}}" wx:key="couponItem">
+		<!-- isBuy为橙色券，unBuy为绿色券 -->
+		<view class="imgPic isBuy">
+			<view class="price"><view style="font-size: 24rpx;color: #f37920;">¥</view>{{item.productByMoney}}</view>
+			<view class="priceInfo">换购券</view>
+		</view>
+		<!-- 券信息 -->
+		<view class="conponInfo">
+			<!-- 券属性 -->
+			<view class="conponAttribute">
+				<!-- 券名称 -->
+				<view class="conponName">{{item.name}}</view>
+				<!-- 券类型 -->
+				<view class="conponType">{{item.intro}}</view>
+				<!-- 券时间 -->
+				<view class="conponTime">
+          {{getDate.getDate(item.couponStartTime)}}
+          ~
+          {{getDate.getDate(item.couponEndTime)}}
+        </view>
+			</view>
+			<!-- 优惠券使用 -->
+			<view class="use" data-item="{{item}}" bindtap="toUseCoupon">去使用</view>
+		</view>
+	</view>
+</view>
+<!-- 已使用 -->
+<view class="conponBox-used {{usedIsShow}}">
+	<!-- 单个优惠券 -->
+	<view class="couponItem"  wx:for="{{usedCouponList}}" wx:key="usedCouponList">
+		<!-- isBuy为橙色券，unBuy为绿色券 -->
+		<view class="imgPic isBuy">
+			<view class="price"><view style="font-size: 24rpx;color: #f37920;">¥</view>200</view>
+			<view class="priceInfo">换购券</view>
+		</view>
+		<!-- 券信息 -->
+		<view class="conponInfo">
+			<!-- 券属性 -->
+			<view class="conponAttribute">
+				<!-- 券名称 -->
+				<view class="conponName">{{item.name}}</view>
+				<!-- 券类型 -->
+				<view class="conponType">{{item.intro}}</view>
+				<!-- 券时间 -->
+				<view class="conponTime">
+					{{getDate.getDate(item.couponStartTime)}}
+          ~
+          {{getDate.getDate(item.couponEndTime)}}
+				</view>
+			</view>
+			<!-- 已使用Pic -->
+			<view class="usedPic">
+				<image src="../../image/couponlist/usedPic.svg"></image>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 已过期 -->
+<view class="conponBox-overdue {{invalidIsShow}}">
+	<!-- 单个优惠券 isOverdue设置成过期优惠券  透明度减半-->
+	<view class="couponItem isOverdue"  wx:for="{{invalidCouponList}}" wx:key="invalidCouponList">
+		<!-- isBuy为橙色券，unBuy为绿色券 -->
+		<view class="imgPic isBuy">
+			<view class="price"><view style="font-size: 24rpx;color: #f37920;">¥</view>200</view>
+			<view class="priceInfo">换购券</view>
+		</view>
+		<!-- 券信息 -->
+		<view class="conponInfo">
+			<!-- 券属性 -->
+			<view class="conponAttribute">
+				<!-- 券名称 -->
+				<view class="conponName">{{item.name}}</view>
+				<!-- 券类型 -->
+				<view class="conponType">{{item.intro}}</view>
+				<!-- 券时间 -->
+				<view class="conponTime">
+					{{getDate.getDate(item.couponStartTime)}}
+          ~
+          {{getDate.getDate(item.couponEndTime)}}
+				</view>
+			</view>
+			<!-- 已使用Pic -->
+			<view class="usedPic">
+				<image src="../../image/couponlist/isOverdue.svg"></image>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,44 @@
+/* pages/login/login.wxss */
+.container {
+	width: 750rpx;
+	height: 1198rpx;
+	display: flex;
+	flex-direction: column;
+	background-color: #ffffff;
+}
+/* 头像 */
+.userHead {
+	width: 160rpx;
+	height: 160rpx;
+	background-color: #dcebc1;
+	border-radius: 50%;
+	margin: 338rpx 0 0 294rpx;
+}
+
+/* 授权文案 */
+.text {
+	width: 364rpx;
+	line-height: 44rpx;
+	margin: 32rpx 0 0 192rpx;
+	display: flex;
+	font-size: 28rpx;
+	letter-spacing: 1rpx;
+}
+
+/* 鲜 字 */
+.fresh {
+	color: rgba(145,196,61,0.85);
+}
+
+/* 授权按钮 */
+#grantBtn {
+	width: 590rpx;
+	height: 80rpx;
+	background-color: #91c43d;
+	border-radius: 66rpx;
+	margin: 60rpx 0 0 80rpx;
+	line-height: 50rpx;
+	text-align: center;
+	color: #FFFFFF;
+	font-weight: 600;
+}

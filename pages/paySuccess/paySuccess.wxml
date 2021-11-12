@@ -1,0 +1,116 @@
+<!-- 支付成功 上面的 -->
+<view class="paySuccessTop">
+  <!-- 图片 -->
+  <view class="imgs"><image src="/image/paySuccess/paySuccess.svg"></image></view>
+  <!-- 支付成功文案 -->
+  <view class="texts">支付成功</view>
+  <!-- 实付金额 -->
+  <view class="price">实付￥{{payAmount}}</view>
+  <!-- 按钮 -->
+  <view class="btnBox">
+    <!-- 返回首页 -->
+    <view class="goIndex" catchtap="goIndex">返回首页</view>
+    <view class="goOrder" catchtap="goOrder">查看订单</view>
+  </view>
+</view>
+
+<!-- 更多标题 -->
+<view class="moreTitle">
+  <view class="lines"></view>
+  <view class="texts">更多超值精选</view>
+  <view class="lines"></view>
+</view>
+
+<!-- 更多内容区域 -->
+<view class="moreContents">
+  <view class="left">
+    <!-- 单个商品元素 -->
+    <view class="commodityItem" wx:for="{{goodsList}}" wx:key='goods' wx:if="{{(index+1) %2 == 1}}">
+      <!-- 商品图片 -->
+      <view class="itemImgs" data-goodsinfo="{{item}}" catchtap="goGoodsDetail"><image class="imgSty" src="{{item.thumb}}"></image></view>
+      <!-- 商品文字 -->
+      <view class="itemTitle" data-goodsinfo="{{item}}" catchtap="goGoodsDetail">
+        <text class="helpPoor" wx:if="{{item.helpPoor}}">帮促</text>
+        {{item.title}}
+      </view>
+      <!-- 价格折扣 -->
+      <view class="priceDiscount" data-goodsinfo="{{item}}" catchtap="goGoodsDetail">
+        <view class="leftPrice">
+          <view class="price1"> <text class="text1">￥</text><text class="text2">{{item.marketPrice}}</text> </view>
+          <view class="price2"> ￥{{item.productPrice}}</view>
+          <view class="bgImgs"> 
+            <view  class="bgImgs1"></view>
+            <view  class="bgImgs2"></view>
+            <!-- <image class="imgSty bgImgs1" mode="scaleToFill" src="/image/index/leftImgs.svg"></image> 
+            <image class="imgSty bgImgs2" mode="scaleToFill" src="/image/index/rightImgs.svg"></image> -->
+          </view>
+        </view>
+        <view class="rightDiscount" wx:if="{{item.discount!=null}}">
+          {{item.discount}}折
+        </view>
+      </view>
+      <!-- 商品价格 与 添加商品 -->
+      <view class="itemPriceAdd">
+        <view class="price" data-goodsinfo="{{item}}" catchtap="goGoodsDetail"> 月销{{item.salesReal}}件</view>
+        <!-- 添加减少 -->
+        <view class="btnBoxs {{ item.buyCount < 1 || item.buyCount == undefined ? 'rightEnd':'' }}">
+          <view class="cutBtn" data-info="{{item}}" bindtap="delCart" wx:if="{{item.buyCount > 0 && item.buyCount != undefined}}">
+            <image class="cutBtnImg" src="/image/index/cutBtn.svg"></image>
+          </view>
+          <view class="goodsNums" wx:if="{{item.buyCount > 0 && item.buyCount != undefined}}">
+            {{item.buyCount}}
+          </view>
+          <view class="addBtn" data-goodsinfo="{{item}}" catchtap="addcart">
+            <image class="addBtnImg" src="/image/index/add.svg"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="right">
+    <!-- 单个商品元素 -->
+    <view class="commodityItem" wx:for="{{goodsList}}" wx:key='goods' wx:if="{{(index+1) %2 == 0}}">
+      <!-- 商品图片 -->
+      <view class="itemImgs" data-goodsinfo="{{item}}" catchtap="goGoodsDetail"><image class="imgSty" src="{{item.thumb}}"></image></view>
+      <!-- 商品文字 -->
+      <view class="itemTitle" data-goodsinfo="{{item}}" catchtap="goGoodsDetail">
+        <text class="helpPoor" wx:if="{{item.helpPoor}}">帮促</text>
+        {{item.title}}
+      </view>
+      <!-- 价格折扣 -->
+      <view class="priceDiscount" data-goodsinfo="{{item}}" catchtap="goGoodsDetail">
+        <view class="leftPrice">
+          <view class="price1"> <text class="text1">￥</text><text class="text2">{{item.marketPrice}}</text> </view>
+          <view class="price2"> ￥{{item.productPrice}}</view>
+          <view class="bgImgs"> 
+            <view  class="bgImgs1"></view>
+            <view  class="bgImgs2"></view>
+            <!-- <image class="imgSty bgImgs1" mode="scaleToFill" src="/image/index/leftImgs.svg"></image> 
+            <image class="imgSty bgImgs2" mode="scaleToFill" src="/image/index/rightImgs.svg"></image> -->
+          </view>
+        </view>
+        <view class="rightDiscount" wx:if="{{item.discount!=null}}">
+          {{item.discount}}折
+        </view>
+      </view>
+      <!-- 商品价格 与 添加商品 -->
+      <view class="itemPriceAdd">
+        <view class="price" data-goodsinfo="{{item}}" catchtap="goGoodsDetail"> 月销{{item.salesReal}}件</view>
+        <!-- 添加减少 -->
+        <view class="btnBoxs {{ item.buyCount  < 1  ? 'rightEnd':'' }}">
+          <view class="cutBtn" data-info="{{item}}" bindtap="delCart" wx:if="{{item.buyCount > 0 && item.buyCount != undefined}}">
+            <image class="cutBtnImg" src="/image/index/cutBtn.svg"></image>
+          </view>
+          <view class="goodsNums" wx:if="{{item.buyCount > 0 && item.buyCount != undefined}}">
+            {{item.buyCount}}
+          </view>
+          <view class="addBtn" data-goodsinfo="{{item}}" catchtap="addcart">
+            <image class="addBtnImg" src="/image/index/add.svg"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+

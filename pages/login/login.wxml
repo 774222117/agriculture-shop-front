@@ -1,0 +1,7 @@
+<!--登陆界面-->
+<!-- 头像 -->
+<view class="userHead"></view>
+<!-- 授权文案 -->
+<view class="text">授权后,鲜<view class="fresh">丰</view>汇就能认识你啦</view>
+<!-- 一键授权 -->
+<button id='grantBtn' class="grantBtn" bindtap="getUserProfile">一键授权</button>

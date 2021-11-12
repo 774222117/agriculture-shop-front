@@ -1,0 +1,264 @@
+<wxs module="getDate" src="../../utils/dateParse.wxs"></wxs>
+<view class="top">
+  <view class="search-box" bindtap="gotoSearch">
+    <text class="cuIcon-search"></text>
+    <text style="color: rgba(255,255,255,0.65);">搜索商品/品牌</text>
+  </view>
+  <image class="saoyisao" bindtap="sancode" src="/image/saoyisao.svg"></image>
+  <image class="saoyisao" bindtap="sancode" src="/image/listtype.svg" catchtap="addnum"></image>
+</view>
+<!-- 主体内容 -->
+<!-- 轮播 公告 品类 背景图片 -->
+<view class="mainBox">
+  <!--  背景图片层 -->
+  <view class="topBgImgs"></view>
+  <!-- 轮播 公告 品类  -->
+  <view class="contents">
+    <!-- 轮播 -->
+    <view class="banners" wx:if="{{allDataObj.shuf.length>0}}">
+      <swiper style="height:100%;" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{allDataObj.shuf}}" wx:key='shuf'>
+          <swiper-item  data-item="{{item}}" catchtap="onjumpPage">
+            <view class="swiper-item" style="height:100%;">
+              <image class="imgSty" src="{{item.bannerImg}}"></image>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- 公告 -->
+    <view class="notice">
+      <!-- 公告单个元素 -->
+      <view class="noticeItems">
+        <view class="text1">鲜<text>丰</text>汇公告</view>
+        <!-- <view class="text2">我们来啦</view> -->
+        <view class="text3">因疫情原因，部分商品暂时无法发货，请谅解！</view>
+      </view>
+    </view>
+    <!-- 品类 -->
+    <view class="category" wx:if="{{allDataObj.category.length>0}}">
+      <!-- 品类包裹一层 -->
+      <view class="categoryContent">
+        <!-- 品类单个元素 -->
+        <view class="categoryItme" wx:for="{{allDataObj.category}}" wx:key='category' data-item="{{item}}" catchtap="onjumpPage">
+          <view class="categoryItmeImg"><image class="imgSty" src="{{item.bannerImg}}"></image></view>
+          <view class="categoryItmeTitle">{{item.bannerTitle}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 活动 未登录不存在 没数据不存在-->
+<view class="activity" wx:if="{{allDataObj.enterpriseBanners.length>0}}">
+  <swiper style="height:100%;" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}"
+         interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{allDataObj.enterpriseBanners}}" wx:key='activity'>
+          <swiper-item  data-item="{{item}}" catchtap="onjumpPage">
+            <view class="swiper-item" style="height:100%;">
+              <image class="imgSty" data-item="{{item}}" catchtap="onjumpPage" src="{{item.bannerImg}}"></image>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+</view>
+<view class="activity" wx:else>
+  <swiper style="height:100%;">
+      <block>
+        <swiper-item>
+          <view class="swiper-item" style="height:100%;">
+            <!-- 固定图片，暂时未给 -->
+            <image class="imgSty" src="/image/index/activity.png"></image>
+          </view>
+        </swiper-item>
+      </block>
+  </swiper>
+</view>
+
+<!-- 好物地图 -->
+<view class="goodMap" wx:if="{{allDataObj.goodmap.length>0}}">
+  <!-- 标题 -->
+  <view class="title">
+    <text class="text1">好物地图</text>
+    <text class="text2">网罗神州好物</text>
+  </view>
+  <!-- 好物地图 元素包裹层 -->
+  <view class="goodMapContent">
+    <scroll-view class="goodMapContentView scroll-view_H" scroll-x="true">
+      <!-- 单个元素 -->
+      <view class="goodMapItem scroll-view-item_H" wx:for="{{allDataObj.goodmap}}"  wx:key='goodmap'>
+        <!-- 图片 -->
+        <view class="imgs"><image class="imgSty" data-item="{{item}}" catchtap="goPromotion" src="{{item.bannerImg}}"></image></view>
+        <!-- icon 名字 -->
+        <view class="itemNames">
+          <!-- <view class="icons"><image class="imgSty" data-item="{{item}}" catchtap="goPromotion" src="{{item.bannerImg}}"></image></view> -->
+          <view class="names" data-item="{{item}}" catchtap="goPromotion">{{item.bannerTitle}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+</view>
+<!-- 专区 -->
+<view class="arrondi" wx:if="{{allDataObj.plate.length>0}}">
+  <!-- 专区单个元素 -->
+  <view class="arrondiItem" wx:for="{{allDataObj.plate}}" data-item="{{item}}" wx:key='promotion' catchtap="goPromotion">
+    <!-- 大标题 -->
+    <view class="title1">{{item.bannerTitle}}</view>
+    <!-- 小标题 -->
+    <view class="title2" >{{item.bannerText}}</view>
+    <!-- 图片 -->
+    <view class="itemImg">
+      <!-- 左边图片 -->
+      <view class="{{goodsIndex==0?'itemImgLeft':'itemImgright'}}" wx:for="{{item.goodsList}}" wx:key='goods' wx:for-item="goodsItem" wx:for-index="goodsIndex" wx:if="{{goodsIndex<2}}"><image class="imgSty" src="{{goodsItem.thumb}}"></image></view>
+      <!-- 右边图片 -->
+      <!-- <view class="itemImgright"><image class="imgSty" src="/image/index/activity.png"></image></view> -->
+    </view>
+  </view>
+</view>
+<!--营销板块-->
+<view class="marketingPlate" wx:if="{{allDataObj.marketing.length>0}}">
+  <image wx:for="{{allDataObj.marketing}}" src="{{item.bannerImg}}" data-item="{{item}}" catchtap="onjumpPage"></image>
+</view>
+
+<!-- 更多标题 -->
+<view class="moreTitle">
+  <view class="lines"></view>
+  <view class="texts">更多超值精选</view>
+  <view class="lines"></view>
+</view>
+
+<!-- 更多内容区域 -->
+<view class="moreContents">
+  <view class="left">
+    <!-- 单个商品元素 -->
+    <view class="commodityItem" wx:for="{{goodsList}}" wx:key='goods' wx:if="{{(index+1) %2 == 1}}">
+      <!-- 商品图片 -->
+      <view class="itemImgs" data-goodsinfo="{{item}}" catchtap="goGoodsDetail"><image class="imgSty" src="{{item.thumb}}"></image></view>
+      <!-- 商品文字 -->
+      <view class="itemTitle" data-goodsinfo="{{item}}" catchtap="goGoodsDetail">
+        <text class="helpPoor" wx:if="{{item.helpPoor}}">帮促</text>
+        {{item.title}}
+      </view>
+      <!-- 价格折扣 -->
+      <view class="priceDiscount" data-goodsinfo="{{item}}" catchtap="goGoodsDetail">
+        <view class="leftPrice">
+          <view class="price1"> <text class="text1">￥</text><text class="text2">{{item.marketPrice}}</text> </view>
+          <view class="price2" wx:if="{{item.marketPrice<item.productPrice}}"> ￥{{item.productPrice}}</view>
+          <view class="bgImgs"> 
+            <view  class="bgImgs1"></view>
+            <view  class="bgImgs2"></view>
+            <!-- <image class="imgSty bgImgs1" mode="scaleToFill" src="/image/index/leftImgs.svg"></image> 
+            <image class="imgSty bgImgs2" mode="scaleToFill" src="/image/index/rightImgs.svg"></image> -->
+          </view>
+        </view>
+        <view class="rightDiscount" wx:if="{{item.discount!=null}}">
+          {{item.discount}}折
+        </view>
+      </view>
+      <!-- 商品价格 与 添加商品 -->
+      <view class="itemPriceAdd">
+        <view class="price" data-goodsinfo="{{item}}" catchtap="goGoodsDetail"> 月销{{item.salesReal}}件</view>
+        <!-- 添加减少 -->
+        <view class="btnBoxs {{ item.buyCount < 1 || item.buyCount == undefined ? 'rightEnd':'' }}">
+          <view class="cutBtn" data-info="{{item}}" bindtap="delCart" wx:if="{{item.buyCount > 0 && item.buyCount != undefined}}">
+            <image class="cutBtnImg" src="/image/index/cutBtn.svg"></image>
+          </view>
+          <view class="goodsNums" wx:if="{{item.buyCount > 0  && item.buyCount != undefined}}">
+            {{item.buyCount}}
+          </view>
+          <view class="addBtn" data-goodsinfo="{{item}}" catchtap="addcart">
+            <image class="addBtnImg" src="/image/index/add.svg"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="right">
+    <!-- 单个商品元素 -->
+    <view class="commodityItem" wx:for="{{goodsList}}" wx:key='goods' wx:if="{{(index+1) %2 == 0}}">
+      <!-- 商品图片 -->
+      <view class="itemImgs" data-goodsinfo="{{item}}" catchtap="goGoodsDetail"><image class="imgSty" src="{{item.thumb}}"></image></view>
+      <!-- 商品文字 -->
+      <view class="itemTitle" data-goodsinfo="{{item}}" catchtap="goGoodsDetail">
+        <text class="helpPoor" wx:if="{{item.helpPoor}}">帮促</text>
+        {{item.title}}
+      </view>
+      <!-- 价格折扣 -->
+      <view class="priceDiscount" data-goodsinfo="{{item}}" catchtap="goGoodsDetail">
+        <view class="leftPrice">
+          <view class="price1"> <text class="text1">￥</text><text class="text2">{{item.marketPrice}}</text> </view>
+          <view class="price2" wx:if="{{item.marketPrice<item.productPrice}}"> ￥{{item.productPrice}}</view>
+          <view class="bgImgs"> 
+            <view  class="bgImgs1"></view>
+            <view  class="bgImgs2"></view>
+            <!-- <image class="imgSty bgImgs1" mode="scaleToFill" src="/image/index/leftImgs.svg"></image> 
+            <image class="imgSty bgImgs2" mode="scaleToFill" src="/image/index/rightImgs.svg"></image> -->
+          </view>
+        </view>
+        <view class="rightDiscount" wx:if="{{item.discount!=null}}">
+          {{item.discount}}折
+        </view>
+      </view>
+      <!-- 商品价格 与 添加商品 -->
+      <view class="itemPriceAdd">
+        <view class="price" data-goodsinfo="{{item}}" catchtap="goGoodsDetail"> 月销{{item.salesReal}}件</view>
+        <!-- 添加减少 -->
+        <view class="btnBoxs {{ item.buyCount  < 1 || item.buyCount == undefined  ? 'rightEnd':'' }}">
+          <view class="cutBtn" data-info="{{item}}" bindtap="delCart" wx:if="{{item.buyCount > 0 && item.buyCount != undefined}}">
+            <image class="cutBtnImg" src="/image/index/cutBtn.svg"></image>
+          </view>
+          <view class="goodsNums" wx:if="{{item.buyCount > 0 && item.buyCount != undefined}}">
+            {{item.buyCount}}
+          </view>
+          <view class="addBtn" data-goodsinfo="{{item}}" catchtap="addcart">
+            <image class="addBtnImg" src="/image/index/add.svg"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 弹框 -->
+<view class="bulletFrame" catchtouchmove="hideBulletFrame" wx:if="{{showBulletFrame}}">
+  <!-- 弹框内容图片 -->
+  <view class="bulletFrameContents" catchtouchmove="hideBulletFrame">
+    <!-- 头图 -->
+    <view class="headerImgs"> 
+      <image class="imgSty" mode="scaleToFill" src="/image/index/bulletFrameHeader.png" ></image>
+      <view class="headerImgsText">恭喜你被企业福利砸中啦</view>
+    </view>
+    <!-- 券样式 -->
+    <view class="couponsContents">
+      <!-- 单个优惠券 -->
+      <view class="couponItem" wx:for="{{rechargeList}}" wx:key='coupon'>
+        <!-- isBuy为橙色券，unBuy为绿色券 yeBuy为余额黄色 -->
+        <view class="imgPic yeBuy">
+          <view class="price"><view style="font-size: 24rpx;color: #f37920;">¥</view>{{item.amount}}</view>
+          <view class="priceInfo">{{item.rechargeType == 2? '换购券':'福利充值'}}</view>
+        </view>
+        <!-- 券信息 -->
+        <view class="conponInfo">
+          <!-- 券属性 -->
+          <view class="conponAttribute">
+            <!-- 券名称 -->
+            <view class="conponName">{{item.describe}}</view>
+            <!-- 券类型 -->
+            <!-- <view class="conponType" wx:if="{{item.rechargeType == 2}}">全品类可用</view> -->
+            <!-- 券时间 -->
+            <view class="conponTime" wx:if="{{item.rechargeType == 2}}">
+              {{getDate.getDate(item.couponStartTime)}}~{{getDate.getDate(item.couponEndTime)}}
+            </view>
+            <!-- 券时间 -->
+            <view class="conponTime" wx:else>
+              已充值进入余额，请查收
+            </view>
+          </view>
+          <!-- 优惠券使用 -->
+          <view class="use" data-item="{{item}}" bindtap="toUse">去使用</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

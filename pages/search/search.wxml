@@ -1,0 +1,142 @@
+<!--搜索页-->
+<view class="topSerach">
+	<!-- 搜索框  有搜索结果的情况下，添加haveresult-->
+	<view class="serachInput haveresult">
+		<!-- 搜索图标 -->
+		<view class="serachPic">
+			<image src="../../image/search/serach.svg"/>
+		</view>
+		<!-- 输入框 -->
+		<input type="text" class="serachfor" value="{{title}}" placeholder="搜索商品" bindconfirm="onSearch" bindinput="onChange" />
+	</view>
+	<!-- 清理Pic -->
+	<view class="clear" bindtap="onClear">
+		<image src="../../image/search/clear.svg"/>
+	</view>
+</view>
+<!-- 未搜索结果前 没搜索前 unchange  有搜索结果 ischange-->
+<view class="containerBox-noresult {{showHistory ? 'ischange' : 'unchange'}}}">
+	<!-- 历史搜索 -->
+	<view class="history">历史搜索</view>
+	<!-- 历史搜索记录 -->
+	<view class="historyResult">
+		<!-- 搜索结果 -->
+		<view class="historyItem" wx:key="history" wx:for="{{histories}}" data-title="{{item}}" bindtap="onUse">
+			{{item}}
+		</view>
+	</view>
+</view>
+<!-- 有搜索结果 -->
+<view class="containerBox-haveresult {{showHistory ? 'unchange' : 'ischange'}}}">
+	<!-- 排序框 -->
+	<view class="sortBox">
+		<!-- 被选中isClick 未被选中unClick -->
+		<view class="defaultSort isClick">默认排序</view>
+	</view>
+
+	<!-- 商品结果 -->
+	<view class="moreContents">
+	  <view class="left">
+	    <!-- 单个商品元素 -->
+	    <view class="commodityItem" wx:key="commodityItem" wx:for="{{goodsInfos}}" wx:if="{{index % 2 == 0}}">
+	      <!-- 商品图片 -->
+	      <view class="itemImgs" data-id="{{item.id}}" catchtap="touchGoods">
+			  <image class="imgSty" src="{{item.thumb}}"/>
+		  </view>
+	      <!-- 商品文字 -->
+	      <view class="itemTitle">
+	        <text class="helpPoor" wx:if="{{item.helpPoor}}">帮促</text>
+	        {{item.title}}
+	      </view>
+	      <!-- 价格折扣 -->
+	      <view class="priceDiscount" data-id="{{item.id}}" catchtap="touchGoods">
+	        <view class="leftPrice">
+	          <view class="price1"> <text class="text1">￥</text><text class="text2">{{item.marketPrice}}</text> </view>
+	          <view class="price2" wx:if="{{item.marketPrice<item.productPrice}}"> ￥{{item.productPrice}}</view>
+	          <view class="bgImgs"> 
+							<view  class="bgImgs1"></view>
+							<view  class="bgImgs2"></view>
+							<!-- <image class="imgSty bgImgs1" mode="scaleToFill" src="/image/index/leftImgs.svg"></image> 
+							<image class="imgSty bgImgs2" mode="scaleToFill" src="/image/index/rightImgs.svg"></image> -->
+						</view>
+	        </view>
+	        <view class="rightDiscount" wx:if="{{item.discount!=null}}">
+	          {{item.discount}}折
+	        </view>
+	      </view>
+	      <!-- 商品价格 与 添加商品 -->
+	      <view class="itemPriceAdd">
+					<view class="price"> 月销{{item.salesReal}}件</view>				
+	        <!-- 添加减少 -->
+        <view class="btnBoxs {{ item.buyCount < 1 || item.buyCount == undefined ? 'rightEnd':'' }}">
+          <view class="cutBtn" data-goodsinfo="{{item}}" bindtap="delCart" wx:if="{{item.buyCount > 0 && item.buyCount != undefined}}">
+            <image class="cutBtnImg" src="/image/index/cutBtn.svg"></image>
+          </view>
+          <view class="goodsNums" wx:if="{{item.buyCount > 0 && item.buyCount != undefined}}">
+            {{item.buyCount}}
+          </view>
+          <view class="addBtn" data-goodsinfo="{{item}}" catchtap="addCart">
+            <image class="addBtnImg" src="/image/index/add.svg"></image>
+          </view>
+        </view>
+	      </view>
+	    </view>
+	  </view>
+	  <view class="right">
+	    <!-- 单个商品元素 -->
+	    <view class="commodityItem" wx:key="commodityItem" wx:for="{{goodsInfos}}" wx:if="{{(index+1) %2 == 0}}">
+	      <!-- 商品图片 -->
+	      <view class="itemImgs" data-id="{{item.id}}" catchtap="touchGoods">
+			  <image class="imgSty" src="{{item.thumb}}"/>
+		  </view>
+	      <!-- 商品文字 -->
+	      <view class="itemTitle">
+	        <text class="helpPoor" wx:if="{{item.helpPoor}}">帮促</text>
+	        {{item.title}}
+	      </view>
+	      <!-- 价格折扣 -->
+	      <view class="priceDiscount" data-id="{{item.id}}" catchtap="touchGoods">
+	        <view class="leftPrice">
+	          <view class="price1"> <text class="text1">￥</text><text class="text2">{{item.marketPrice}}</text> </view>
+	          <view class="price2" wx:if="{{item.marketPrice<item.productPrice}}"> ￥{{item.productPrice}}</view>
+	          <view class="bgImgs"> 
+							<view  class="bgImgs1"></view>
+							<view  class="bgImgs2"></view>
+							<!-- <image class="imgSty bgImgs1" mode="scaleToFill" src="/image/index/leftImgs.svg"></image> 
+							<image class="imgSty bgImgs2" mode="scaleToFill" src="/image/index/rightImgs.svg"></image> -->
+						</view>
+	        </view>
+	        <view class="rightDiscount" wx:if="{{item.discount!=null}}">
+	          {{item.discount}}折
+	        </view>
+	      </view>
+	      <!-- 商品价格 与 添加商品 -->
+	      <view class="itemPriceAdd">
+	        <view class="price" data-goodsinfo="{{item}}"> 月销{{item.salesReal}}件</view>
+	        <!-- 添加减少 -->
+        <view class="btnBoxs {{ item.buyCount  < 1 || item.buyCount == undefined ? 'rightEnd':'' }}">
+          <view class="cutBtn" data-goodsinfo="{{item}}" bindtap="delCart" wx:if="{{item.buyCount > 0 && item.buyCount != undefined}}">
+            <image class="cutBtnImg" src="/image/index/cutBtn.svg"></image>
+          </view>
+          <view class="goodsNums" wx:if="{{item.buyCount > 0 && item.buyCount != undefined}}">
+            {{item.buyCount}}
+          </view>
+          <view class="addBtn" data-goodsinfo="{{item}}" catchtap="addCart">
+            <image class="addBtnImg" src="/image/index/add.svg"></image>
+          </view>
+        </view>
+	      </view>
+	    </view>
+	  </view>
+	</view>
+	
+	
+</view>
+<!-- 悬浮购物车 -->
+<view class="suspensionShoppingCart">
+  <view class="icons">
+		<image class="imgSty" src="/image/tabBar/carOff.svg" catchtap="toCart"></image>
+	</view>
+  <view class="goodsNums">{{totalBuyCount}}</view>
+</view>
+

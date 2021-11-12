@@ -1,0 +1,80 @@
+<wxs module="getDate" src="../../utils/dateParse.wxs"></wxs>
+<!-- 我的订单选项 -->
+<view class="myOrderHeader">
+  <block wx:for="{{['全部订单','待付款','待收货','待退款']}}" wx:key="title">
+    <view class="titles {{index == currentTab ? 'active' : ''}}" bindtap="changeTab" data-index="{{index}}">
+      {{item}}
+      <view class="lines"><image class="imgSty" mode="scaleToFill" src="/image/order/lines.svg"></image></view>
+    </view>
+  </block>
+</view>
+
+<!-- 我的订单 元素  -->
+<view class="myOrderMain">
+  <!-- 订单元素 -->
+  <view class="orderItem" wx:for="{{orderList}}" wx:key="orderList">
+    <!-- 内层盒子 -->
+    <view class="itemInfo">
+      <!-- 头部时间订单状态 -->
+      <view class="timerOrderStart">
+        <view class="timer">{{getDate.getDate(item.createTime)}} {{getDate.getDateH(item.createTime)}}</view>
+        <view class="orderStart">{{item.statusExplain}}</view>
+      </view>
+
+      <!-- 中间商品信息 -->
+      <view class="orderGoodsInfo">
+        <!-- 图片盒子 多个商品-->
+        <view class="leftImgAll" wx:if="{{item.goodsList.length == 1}}">
+          <!-- 图片 -->
+          <view class="orderImg" wx:for="{{item.goodsList}}" wx:key="images">
+            <image class="imgSty" mode="scaleToFill" src="{{item.goodsThumb}}"/>
+          </view>
+        </view>
+        <!-- 单个商品 -->
+        <view class="leftImg" wx:else>
+          <!-- 图片 -->
+          <view class="orderImg"><image class="imgSty" mode="scaleToFill" src="{{item.goodsList[0].goodsThumb}}"></image></view>
+          <!-- 商品名称信息 -->
+          <view class="goodsNamesNums">
+            <view class="goodsNames">{{item.goodsList[0].title}}</view>
+            <view class="goodsNums">x{{item.goodsList[0].total}}</view>
+          </view>
+        </view>
+        <!-- 右边查看 -->
+        <view class="loopMore" data-id="{{item.id}}" data-peopleId="{{item.peopleId}}" bindtap="toOrderInfo">
+          <view class="text1">共{{item.goodsList[0].total}}件</view>
+          <view class="icons"> <image class="imgSty" mode="scaleToFill" src="/image/applyafterorder/rightMore.svg"></image> </view>
+        </view>
+      </view>
+
+      <!-- 下面的金额 订单按钮 -->
+      <view class="moneyBtn">
+        <view class="orderMoney">合计金额 <text>￥{{item.price}}</text></view>
+        <view class="toDeliveryInfo deliveryBtn" data-ordersn="{{item.ordersn}}" data-item="{{item}}" bindtap="chooseExpressGoods">物流信息</view>
+        <view class="toOrderInfo orderBtn" data-id="{{item.id}}" data-peopleId="{{item.peopleId}}" bindtap="toOrderInfo">订单详情</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-modal bottom-modal {{modalName=='chooseGoodsModal'?'show':''}}">
+  <view class="cu-dialog pickAddrBox">
+    <view class="cu-bar bg-white addressTitle">
+      <view style="font-size:28rpx;color:rgba(57,57,57,1);margin-left:30rpx;font-weight:600;">
+        选择需要查看的商品
+      </view>
+      <view class="action cuIcon-close" style="font-size:40rpx;" bindtap="hideModal"></view>
+    </view>
+    <radio-group class="block">
+      <view class="cu-list menu text-left">
+        <view class="cu-item expressorder" wx:for="{{curOrderInfo.goodsList}}" wx:key="disIndex">
+          <view class="expressorderImg"><image class="imgSty" mode="scaleToFill" src="{{item.goodsThumb}}"></image></view>
+          <view catchtap="toDeliveryInfo" data-ordersn="{{curOrderInfo.ordersn}}" data-expressnumber="{{item.expressNumber}}">
+            查看物流信息
+          </view>
+        </view>
+        <view class="cu-item">
+        </view>
+      </view>
+    </radio-group>
+  </view>
+</view>

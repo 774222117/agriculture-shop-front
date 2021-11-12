@@ -1,0 +1,121 @@
+<!--我的-->
+<view class="top">
+	<!-- 用户头像 -->
+	<image class="userImg" src="{{peopleInfo.icon}}"/>
+	<!-- 用户信息 -->
+	<view class="userInfo">
+		<!-- 用户名称 -->
+		<view class="name">{{peopleInfo.nickName}}</view>
+		<!-- 用户类型 -->
+		<view wx:if="{{peopleInfo.enterpriseId > 0}}" class="nameType">企业用户</view>
+	</view>
+	<!-- 联系客服 -->
+	<view class="customerService">
+		<button class="contact_button" open-type="contact" session-from="weapp">
+			<image class="bgImg" src="../../image/myIndex/customer.svg"></image>
+			<view class="text1">客服</view>
+		</button>
+	</view>
+</view>
+<!-- 余额和优惠券 -->
+<view class="account">
+	<!-- 左边余额 -->
+	<view class="leftBox">
+		<view class="text2">余额</view>
+		<!-- 余额 -->
+		<view class="balance"><text class="text11">¥</text>{{peopleInfo.balanceData}}</view>
+		<!-- 充值 -->
+		<view class="recharge" bindtap="touchBalance">
+			<view class="text3">充值</view>
+			<image class="rechargeImg" src="../../image/myIndex/moreBtn.svg"></image>
+		</view>
+	</view>
+	<!-- 中间竖线 -->
+	<view class="center"></view>
+	<!-- 右边优惠券 -->
+	<view class="rightBox">
+		<!-- 优惠券 -->
+		<view class="coupon">优惠券</view>
+		<!-- 数量 -->
+		<view class="num">{{countData.couponNumber}}</view>
+		<!-- 查看 -->
+		<view class="watch" bindtap="touchCoupon">
+			<view class="text3">查看</view>
+			<image class="rechargeImg" src="../../image/myIndex/moreBtn.svg"></image>
+		</view>
+	</view>
+</view>
+
+<!-- 我的订单 -->
+<view class="myOrderBox">
+	<view class="textOrder">
+		<text class="text11">我的订单</text>
+		<!-- 全部订单 -->
+		<!-- <text class="page1" data-status="0" bindtap="touchOrder">全部订单</text> -->
+		<!-- 查看全部订单按钮 -->
+		<!-- <view class="watchOrder">
+			<image src="../../image/myIndex/watchOrder.svg"></image>
+		</view> -->
+	</view>
+	<!-- 订单选项 -->
+	<view class="orderChange">
+		<!-- 待付款 -->
+		<view class="waitPay" data-status="1" bindtap="touchOrder">
+			<view class="payItem">
+				<!-- 待付款图片 -->
+				<view class="payImg">
+					<!-- 待付款数量 当有商品需要待付款状态时，设置为ischange状态-->
+					<view wx:if="{{countData.noPayOrder > 0}}" class="payNum ischange">{{countData.noPayOrder}}</view>
+					<image src="../../image/myIndex/frame.svg"></image>
+				</view>
+				<view class="pay1">待付款</view>
+			</view>
+		</view>
+		<!-- 待收货 -->
+		<view class="waitGet" data-status="2" bindtap="touchOrder">
+			<!-- 图标盒子 -->
+			<view class="GetItem">
+				<!-- 图标 -->
+				<view class="GetImg">
+					<!-- 待付款数量 当有商品需要待付款状态时，设置为ischange状态-->
+					<view wx:if="{{countData.waitSend > 0}}" class="payNum ischange">{{countData.waitSend}}</view>
+					<image src="../../image/myIndex/waitGet.svg"></image>
+				</view>
+				<!-- 属性 -->
+				<view class="pay2">待收货</view>
+			</view>
+		</view>
+		<!-- 已完成 -->
+		<view class="finish" data-status="0" bindtap="touchOrder">
+			<view class="finishItem">
+				<view class="finishImg">
+					<image src="../../image/myIndex/finish.svg"></image>
+				</view>
+				<view class="pay3">全部订单</view>
+			</view>
+		</view>
+		<!-- 售后服务 -->
+		<view class="service" data-status="4" bindtap="touchAfter">
+			<view class="serviceItem">
+				<view class="serviceImg">
+					<image src="../../image/myIndex/service.svg"></image>
+				</view>
+				<view class="pay4">售后服务</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<!-- 订单页活动推荐 -->
+<view class="activity">
+  <swiper style="height:100%;">
+	<block>
+	  <swiper-item wx:for="{{saleActivityList}}" wx:key="promotions" data-item="{{item}}" catchtap="goPromotion">
+		<view class="swiper-item" style="height:100%;" >
+		  <image class="imgSty" src="{{item.coverImg}}"></image>
+		</view>
+	  </swiper-item>
+	</block>
+  </swiper>
+</view>
+

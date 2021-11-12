@@ -1,0 +1,191 @@
+/* pages/order/order.wxss */
+/* 头部 */
+.myOrderHeader{
+  width: 100%;
+  height: 88rpx;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.myOrderHeader .titles{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(60,60,67,0.65);
+  line-height: 44rpx;
+}
+
+.myOrderHeader .titles.active{
+  color: #91c43d;
+  height: 100%;
+  line-height: 88rpx;
+  position: relative;
+}
+.active .lines{
+  width: 70rpx;
+  height: 6rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+/* 订单元素盒子 */
+.myOrderMain{
+  width: 100%;
+  padding: 16rpx 20rpx 20rpx;
+}
+/* 订单元素 */
+.myOrderMain .orderItem{
+  width: 100%;
+  height: 334rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+  overflow: hidden;
+}
+.orderItem .itemInfo{
+  width: 670rpx;
+  height: 294rpx;
+  box-sizing: border-box;
+  margin: 20rpx auto;
+}
+
+/* 头部时间订单状态 */
+.timerOrderStart{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 时间 头部 */
+.timerOrderStart .timer{
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(60,60,67,0.65);
+  line-height: 40rpx;
+}
+/* 订单状态 头部*/
+.timerOrderStart .orderStart{
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: #f37920;
+  line-height: 40rpx;
+  margin-bottom: 24rpx;
+}
+
+/* 中间商品信息 */
+.orderGoodsInfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14rpx;
+}
+/* 多个商品 中间商品信息 */
+.orderGoodsInfo .leftImgAll{
+  width: 520rpx;
+  height: 108rpx;
+  display: flex;
+  align-items: center;
+}
+.orderGoodsInfo .leftImgAll .orderImg{
+  width: 108rpx;
+  height: 108rpx;
+  margin-right: 16rpx;
+}
+/* 单个商品 */
+.orderGoodsInfo .leftImg{
+  width: 520rpx;
+  height: 108rpx;
+  display: flex;
+  align-items: center;
+}
+/* 图片 单个商品*/
+.orderGoodsInfo .leftImg .orderImg{
+  width: 108rpx;
+  height: 108rpx;
+  margin-right: 16rpx;
+}
+/* 商品名称信息  单个商品*/
+.orderGoodsInfo .leftImg .goodsNamesNums{
+  width: 390rpx;
+  height: 100%;
+}
+.orderGoodsInfo .leftImg .goodsNamesNums .goodsNames{
+  width: 100%;
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(0,0,0,0.85);
+  line-height: 40rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.orderGoodsInfo .leftImg .goodsNamesNums .goodsNums{
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(60,60,67,0.65);
+  line-height: 40rpx;
+}
+/* 右边查看 中间商品信息*/
+.orderGoodsInfo .loopMore{
+  width: 108rpx;
+  height: 108rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(60,60,67,0.65);
+}
+.orderGoodsInfo .loopMore .text1{}
+.orderGoodsInfo .loopMore .icons{
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 14rpx;
+}
+
+/* 下面的金额 订单按钮 */
+.moneyBtn{
+  width: 100%;
+  height: 108rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(60, 60, 67, 0.15);
+}
+.moneyBtn .orderMoney{
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(0,0,0,0.85);
+  line-height: 40rpx;
+}
+.moneyBtn .orderMoney text{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: bold;
+  color: rgba(0,0,0,0.85);
+  line-height: 44px;
+}
+.moneyBtn .orderBtn{
+  width: 160rpx;
+  height: 56rpx;
+  border-radius: 58rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: 600;
+  text-align: CENTER;
+  color: #91c43d;
+  line-height: 56rpx;
+  border: 2rpx solid #91c43d;
+}
+
+.imgSty{width: 100%;height: 100%;display: block;}

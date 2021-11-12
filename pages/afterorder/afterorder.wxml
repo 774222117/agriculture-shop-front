@@ -1,0 +1,50 @@
+<!--pages/orderInfo/orderInfo.wxml-->
+<!-- 售后订单状态 -->
+<!-- 头部 -->
+<view class="header">
+  <view class="text1 fw">{{orderInfo.statusExplain}}</view>
+  <view class="text2">
+    <view class="icons"> <image class="imgSty" src="/image/orderInfo/icons2.svg"></image> </view>
+    <view class="copywriting"> {{orderDesc}} </view>
+  </view>
+</view>
+
+<!-- 审核详情 -->
+<view class="priceInfo">
+  <!-- 申请类型 -->
+  <view class="pubSty">
+    <view class="text2">申请类型</view>
+    <text class="text1">{{orderInfo.applyType == 'REFUND'?'仅退款':'有实物退货'}}</text>
+  </view>
+  <!-- 申请时间 -->
+  <view class="pubSty">
+    <view class="text2">申请时间</view>
+    <text class="text1">{{orderInfo.applyTime}}</text>
+  </view>
+  <!-- 申请原因 -->
+  <view class="pubSty">
+    <view class="text2">申请原因</view>
+    <text class="text1">{{orderInfo.applyReason}}</text>
+  </view> 
+  <!-- 详细原因 -->
+  <view class="pubSty">
+    <view class="text2">详细原因</view>
+    <text class="text1">{{orderInfo.questionDescription}}</text>
+  </view>
+</view>
+
+<!-- 商品 -->
+<view class="goodsContents">
+  <view class="goodsItem" wx:for="{{orderInfo.orderAfterSaleGoodsList}}" wx:key="afterSaleGoodsList">
+    <!-- 商品图片 -->
+    <view class="goodsImg"><image class="imgSty" mode="scaleToFill" src="{{item.goodsThumb}}"></image> </view>
+    <!-- 商品名称 价格 -->
+    <view class="goodsInfo">
+      <view class="goodsNames">
+        <view class="text1">{{item.title}}</view>
+        <view class="text2">x{{item.quantity}}</view>
+      </view>
+      <view class="text1 goodsPrice">￥{{item.totalRefund}}</view>
+    </view>
+  </view>
+</view>

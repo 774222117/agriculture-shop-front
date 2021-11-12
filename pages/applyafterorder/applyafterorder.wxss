@@ -1,0 +1,380 @@
+/* pages/applyafterorder/applyafterorder.wxss */
+/* 选择商品 */
+.choiceGoods{
+  width: 710rpx;
+  /* height: 658rpx; */
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  margin: 16rpx auto 0;
+  padding: 20rpx 20rpx 0;
+}
+/* 标题 包含 选择商品 服务类型 售后原因 */
+.choiceGoods .title,.servicType .title,.afterSalesReasons .title{
+  width: 100%;
+  height: 48rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: 600;
+  color: rgba(0,0,0,0.85);
+  line-height: 48rpx;
+  margin-bottom: 20rpx;
+}
+/* 商品元素 */
+.choiceGoods .goodsItem{
+  width: 100%;
+  height: 186rpx;
+  display: flex;
+  justify-content: space-between;
+}
+/* 商品元素 图片 */
+.goodsItem .goodsImg{
+  width: 108rpx;
+  height: 108rpx;
+}
+/* 商品元素 右边信息 */
+.goodsItem .goodsInfo{
+  width: 562rpx;
+  height: 166rpx;
+  padding-left: 16rpx;
+  border-bottom: 2rpx solid rgba(60, 60, 67, 0.15);
+}
+.choiceGoods .goodsItem:nth-last-child(1) .goodsInfo{border-bottom: none;}
+/* 商品元素 名称 商品包装数量 */
+.goodsItem .goodsInfo .topNameNum{
+  width: 100%;
+  height: 82rpx;
+  margin-bottom: 16rpx;
+  display: flex;
+  justify-content: space-between;
+}
+/* 商品元素 名称  */
+.goodsItem .goodsInfo .topNameNum .text1{
+  width: 418rpx;
+  height: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  text-align: LEFT;
+  color: rgba(0,0,0,0.85);
+  line-height: 44rpx;
+}
+/* 商品元素 商品包装数量 */
+.goodsItem .goodsInfo .topNameNum .text2{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(60,60,67,0.65);
+  line-height: 44rpx;
+}
+
+/* 商品元素 价格 商品购买数量  */
+.goodsItem .goodsInfo .priceNum{
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+/* 商品元素 价格   */
+.goodsItem .goodsInfo .priceNum .price{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(0,0,0,0.85);
+  line-height: 44rpx;
+}
+/* 商品元素  商品购买数量  */
+.goodsItem .goodsInfo .priceNum .fluctuate{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 商品元素  减少  */
+.goodsItem .goodsInfo .priceNum .fluctuate .cut{
+  width: 48rpx;
+  height: 48rpx;
+}
+/* 商品元素  商品购买数量  */
+.goodsItem .goodsInfo .priceNum .fluctuate .nums{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(0,0,0,0.85);
+  line-height: 48rpx;
+  padding: 0 8rpx;
+}
+/* 商品元素  增加  */
+.goodsItem .goodsInfo .priceNum .fluctuate .add{
+  width: 48rpx;
+  height: 48rpx;
+}
+
+/* 服务类型 */
+.servicType{
+  width: 710rpx;
+  height: 348rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  margin: 16rpx auto 0;
+  padding: 20rpx 0 20rpx 20rpx;
+}
+/* 退款 退货公共样式 */
+.refundPubSyu{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 左边图片 */
+.refundPubSyu .leftImg{
+  width: 64rpx;
+  height: 64rpx;
+}
+/* 中间文案 */
+.refundPubSyu .servicTypeText{
+  width: 500rpx;
+  height: 84rpx;
+}
+/* 大标题 */
+.refundPubSyu .servicTypeText .text1{
+  width: 100%;
+  height: 44rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(0,0,0,0.85);
+  line-height: 44rpx;
+}
+/* 小标题 */
+.refundPubSyu .servicTypeText .text2{
+  width: 100%;
+  height: 40rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(60,60,67,0.65);
+  line-height: 40rpx;
+}
+/* 右边选择 */
+.refundPubSyu .isRadio{
+  width: 96rpx;
+  height: 96rpx;
+}
+
+/* 退款 */
+.refund{
+
+}
+/* 退货 */
+.refundGoods{}
+
+/* 售后原因 */
+.afterSalesReasons{
+  width: 710rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  margin: 16rpx auto 0;
+  padding: 20rpx;
+}
+/* 退款理由 */
+.afterSalesReasons .reasonsForRefund{
+  width: 100%;
+  height: 96rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.afterSalesReasons .reasonsForRefund .text1{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  color: rgba(0,0,0,0.85);
+}
+.afterSalesReasons .reasonsForRefund .text1 text{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(240,46,46,0.85);
+  line-height: 44rpx;
+}
+.afterSalesReasons .reasonsForRefund .text2{
+  width: 118rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(60,60,67,0.65);
+  line-height: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.afterSalesReasons .reasonsForRefund .text2 view{
+  width: 24rpx;
+  height: 24rpx;
+}
+/* 退款金额 */
+.afterSalesReasons .priceForRefund{
+  width: 100%;
+}
+.afterSalesReasons .priceForRefund .top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.afterSalesReasons .priceForRefund .top .text1{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  color: rgba(0,0,0,0.85);
+}
+.afterSalesReasons .priceForRefund .text1 text{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(240,46,46,0.85);
+  line-height: 44rpx;
+}
+.afterSalesReasons .priceForRefund .top .text2{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: 600;
+  color: #f37920;
+  line-height: 44rpx;
+}
+.afterSalesReasons .priceForRefund .tips{
+  font-size: 22rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(60,60,67,0.65);
+  line-height: 40rpx;
+}
+
+/* 补充描述 */
+.replenishDesc{
+  width: 710rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  margin: 16rpx auto 0;
+  margin-bottom: 134rpx;
+  padding: 20rpx 20rpx 32rpx;
+}
+/* 补充描述 标题 */
+.replenishDesc .title{
+  width: 100%;
+  height: 48rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: 600;
+  color: rgba(0,0,0,0.85);
+  line-height: 48rpx;
+  margin-bottom: 20rpx;
+}
+/* 补充描述 输入整体 */
+.replenishDesc .contents{
+  width: 100%;
+  min-height: 300rpx;
+  background-color: #f9f9f9;
+  border-radius: 16rpx;
+  
+}
+/* 补充描述 输入框 */
+.replenishDesc .contents .inputsBox{
+  width: 100%;
+  min-height: 44rpx;
+  border: 1px solid rgba(60, 60, 67, 0.15);
+  border-radius: 16rpx;
+  
+  padding: 20rpx;
+}
+.replenishDesc .contents .inputsBox .inputs{
+  width: 100%;
+  min-height: 44rpx;
+  color: rgba(0, 0, 0, 0.85);
+  padding: 20rpx;
+}
+/* 补充描述 输入框长度 */
+.replenishDesc .contents .textLength{
+  width: 100%;
+  min-height: 44rpx;
+  text-align: right;
+  color: rgba(60, 60, 67, 0.45);
+}
+/* 补充描述 上传图片 外层 */
+.replenishDesc .contents .imgBoxContent{
+  width: 100%;
+  height: 140rpx;
+  margin-top: 32rpx;
+  display: flex;
+}
+/* 补充描述 上传图片 元素 */
+.replenishDesc .contents .imgBoxContent .imgsBox{
+  width: 140rpx;
+  height: 140rpx;
+  border: 2rpx dotted rgba(60,60,67,0.25);
+  margin-right: 34rpx;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* 没有图片的icon */
+.replenishDesc .contents .imgBoxContent .imgsBox .topIcon{
+  width: 40rpx;
+  height: 40rpx;
+}
+/* 没有图片的文案 */
+.replenishDesc .contents .imgBoxContent .imgsBox .btmText{
+  color: rgba(60, 60, 67, 0.65);
+}
+.replenishDesc .contents .imgBoxContent .imgsBox .btmText view{
+  font-size: 20rpx;
+  color: rgba(60, 60, 67, 0.65);
+}
+/* 有图片关闭样式 */
+.closeImgs{
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 34rpx;
+  border-radius: 16rpx;
+  position: relative;
+}
+.closeImgs .imgs{
+  width: 100%;
+  height: 100%;
+  border-radius: 16rpx;
+}
+/* 关闭按钮 */
+.closeImgs .close{
+  width: 88rpx;
+  height: 88rpx;
+  position: absolute;
+  right: -44rpx;
+  top: -44rpx;
+  z-index: 1;
+}
+
+
+/* 立即提交 */
+.submits{
+  width: 100%;
+  height: 114rpx;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.submits .submitsBtn{
+  width: 670rpx;
+  height: 80rpx;
+  background-color: #91c43d;
+  border-radius: 66rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 80rpx;
+  text-align: center;
+}
+.imgSty{width: 100%;height: 100%;display: block;}

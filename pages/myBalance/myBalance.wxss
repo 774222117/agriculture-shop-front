@@ -1,0 +1,563 @@
+/* pages/mycoupon/mycoupon.wxss */
+.container {
+	width: 750rpx;
+	position: relative;
+}
+.top {
+	width: 750rpx;
+	height: 360rpx;
+	opacity: 1;
+	background: #91c43d;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+}
+.top .balanceText {
+	width: 112rpx;
+	height: 44rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: LEFT;
+	color: #ffffff;
+	line-height: 44rpx;
+	margin: 46rpx 0 0 40rpx;
+}
+/* 余额盒子 */
+.top .balancePriceBox {
+	width: 226rpx;
+	height: 72rpx;
+	display: flex;
+	align-items: flex-end;
+	margin: 8rpx 0 0 44rpx;
+}
+.top .page {
+	width: 22rpx;
+	height: 52rpx;
+	font-size: 36rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: LEFT;
+	color: #ffffff;
+	line-height: 52rpx;
+}
+/* 余额 */
+.top .balance {
+	width: 196rpx;
+	height: 72rpx;
+	font-size: 56rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: LEFT;
+	color: #ffffff;
+	line-height: 72rpx;
+}
+/* 用户信息 */
+.top .userInfo {
+	width: 374rpx;
+	height: 52rpx;
+	margin: 56rpx 0 0 44rpx;
+	display: flex;
+	align-items: center;
+}
+/* 用户头像 */
+.top .userInfo .userIcon {
+	width: 52rpx;
+	height: 52rpx;
+	opacity: 1;
+	border: 2rpx solid #ffffff;
+	border-radius: 50%;
+}
+.userIcon image{width: 100%;height: 100%;display: block;border-radius: 50%;}
+/* 用户电话 */
+.top .userInfo .phone {
+	width: 162rpx;
+	height: 44rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: LEFT;
+	color: #ffffff;
+	line-height: 44rpx;
+	margin-left: 12rpx;
+}
+/* 用户类型 */
+.top .userInfo .type {
+	width: 128rpx;
+	height: 40rpx;
+	opacity: 1;
+	background-color: #f37920;
+	border: 2rpx solid #91c43d;
+	border-radius: 10rpx;
+	font-size: 22rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: CENTER;
+	color: #ffffff;
+	line-height: 40rpx;
+	margin-left: 20rpx;
+}
+/* 食堂卡转入 */
+.center {
+	width: 710rpx;
+	height: 144rpx;
+	opacity: 1;
+	background: #ffffff;
+	border-radius: 16rpx;
+	position: absolute;
+	top: 302rpx;
+	left: 20rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+/* 食堂卡转入 */
+.center .canteenCar {
+	width: 120rpx;
+	height: 96rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.canteenCar .bgImg1 {
+	width: 48rpx;
+	height: 48rpx;
+}
+.bgImg1 image{width: 100%;height: 100%;display: block;}
+.wechat .bgImg2 {
+	width: 48rpx;
+	height: 48rpx;
+}
+.bgImg2 image{width: 100%;height: 100%;display: block;}
+.canteenCar .canteenText {
+	width: 120rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+}
+.wechat .wechatText {
+	width: 96rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+}
+/* 竖线 */
+.center .centerLine {
+	width: 0rpx;
+	height: 60rpx;
+	opacity: 1;
+	border: 1rpx solid rgba(60,60,67,0.15);
+}
+/* 微信转入 */
+.center .wechat {
+	width: 120rpx;
+	height: 96rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+/* 历史记录盒子 */
+.rechargeBox {
+	width: 710rpx;
+	height: 100%;
+	position: absolute;
+	top: 476rpx;
+	left: 20rpx;
+}
+/* 通用字体 */
+.text1 {
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+}
+.rechargeBox .text {
+	width: 128rpx;
+	height: 48rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: center;
+	color: rgba(0,0,0,0.85);
+	line-height: 48rpx;
+	margin-left: 20rpx;
+}
+/* 历史记录 */
+.rechargeBox .history {
+	width: 710rpx;
+	height: 100%;
+	margin-top: 20rpx;
+}
+/* 一条记录 */
+.history .historyItem {
+	width: 710rpx;
+	height: 120rpx;
+	opacity: 1;
+	background-color: #ffffff;
+}
+/* 底部border线盒子 */
+.historyItem .borderBox {
+	width: 660rpx;
+	height: 120rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-left: 20rpx;
+}
+.isBorder {
+	border-top: 1rpx #f9f9f9 solid;
+}
+/* 左边信息 */
+.historyItem .leftInfo {
+	width: 332rpx;
+	height: 80rpx;
+	margin-left: 24rpx;
+}
+/* 时间 */
+.leftInfo .timeBox {
+	width: 214rpx;
+	height: 40rpx;
+	display: flex;
+	margin-left: 4rpx;
+}
+/* 卡号 */
+.leftInfo .carNum {
+	width: 332rpx;
+	height: 40rpx;
+}
+/* 日期 */
+.timeBox .data{
+	width: 128rpx;
+	height: 40rpx;
+}
+/* 具体时间 */
+.timeBox .time{
+	width: 60rpx;
+	height: 40rpx;
+	margin-left: 16rpx;
+}
+/* 右边金额 */
+.historyItem .rightInfo {
+	min-width: 100rpx;
+	height: 48rpx;
+	margin-right: 20rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 48rpx;
+}
+/* 遮罩层 */
+.mask {
+	width: 750rpx;
+	height: 1452rpx;
+	background: rgba(0,0,0,0.45);
+	position: absolute;
+	z-index: 5;
+}
+/* 开启 */
+.ischange {display: block;}
+/* 关闭 */
+.unchange {display: none;}
+/* 绑定食堂卡弹窗 */
+.bindConteen {
+	width: 750rpx;
+	height: 904rpx;
+	opacity: 1;
+	background: #ffffff;
+	border-radius: 50rpx 50rpx 0 0 ;
+	position: fixed;
+	z-index: 6;
+	bottom: 0;
+}
+/* 顶部 */
+.bindConteen .title {
+	width: 750rpx;
+	height: 88rpx;
+	display: flex;
+}
+.bindConteen .title .titleText {
+	width: 180rpx;
+	height: 48rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: center;
+	color: rgba(0,0,0,0.85);
+	line-height: 48rpx;
+	margin: 40rpx 0 0 296rpx;
+}
+/* 关闭按钮 */
+.bindConteen .title .close {
+	width: 88rpx;
+	height: 88rpx;
+	margin-left: 206rpx;
+}
+.bindConteen .title .close image {width: 100%;height: 100%;display: block;}
+.bindConteen .numCarText {
+	width: 48rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+	margin: 32rpx 0 0 42rpx;
+}
+/* 卡号输入框 */
+.bindConteen .numCarBox {
+	width: 666rpx;
+	height: 88rpx;
+	opacity: 1;
+	background-color: #f9f9f9;
+	border-radius: 16rpx;
+	margin: 8rpx 0 0 42rpx;
+	display: flex;
+}
+.bindConteen .numCarBox input {
+	width: 280rpx;
+	height: 44rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: LEFT;
+	line-height: 44rpx;
+	margin: 22rpx 0 0 20rpx;
+}
+.bindConteen .phoneText {
+	width: 72rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+	margin: 32rpx 0 0 42rpx;
+}
+.bindConteen .phoneBox {
+	width: 666rpx;
+	height: 88rpx;
+	opacity: 1;
+	background-color: #f9f9f9;
+	border-radius: 16rpx;
+	margin: 8rpx 0 0 42rpx;
+	display: flex;
+}
+.bindConteen .phoneBox input {
+	width: 280rpx;
+	height: 44rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: LEFT;
+	line-height: 44rpx;
+	margin: 22rpx 0 0 20rpx;
+}
+/* 验证码盒子 */
+.bindConteen .codeTextBox {
+	width: 260rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+	margin: 32rpx 0 0 42rpx;
+	display: flex;
+}
+.bindConteen .codeTextBox .codeText {
+	width: 72rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: LEFT;
+	color: rgba(60,60,67,0.65);
+	line-height: 40rpx;
+}
+/* 验证错误提示 */
+.bindConteen .codeTextBox .codeError {
+	width: 170rpx;
+	height: 40rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: RIGHT;
+	color: #f02e2e;
+	line-height: 40rpx;
+	margin-left: 16rpx;
+}
+.bindConteen .CodeBox {
+	width: 666rpx;
+	height: 88rpx;
+	opacity: 1;
+	background-color: #f9f9f9;
+	border-radius: 16rpx;
+	margin: 8rpx 0 0 42rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.bindConteen .CodeBox input {
+	width: 280rpx;
+	height: 44rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: LEFT;
+	line-height: 44rpx;
+	margin-left: 20rpx;
+}
+/* 发送验证码 */
+.bindConteen .CodeBox .shotCode {
+	width: 140rpx;
+	height: 44rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: RIGHT;
+	color: rgba(60,60,67,0.55);
+	line-height: 44rpx;
+}
+#readyBind {
+	width: 670rpx;
+	height: 82rpx;
+	opacity: 1;
+	background: #91c43d;
+	border-radius: 66rpx;
+	margin: 178rpx 0 0 40rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: center;
+	color: #ffffff;
+	line-height: 44rpx;
+}
+/* 可用余额 */
+.bindConteen .balanceUseBox {
+	width: 750rpx;
+	height: 44rpx;
+	display: flex;
+	align-items: center;
+}
+.bindConteen .balanceText {
+	width: 140rpx;
+	height: 44rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(60,60,67,0.65);
+	line-height: 44rpx;
+	margin-left: 246rpx;
+}
+/*可用余额 */
+.bindConteen .money {
+	width: 104rpx;
+	height: 44rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Regular;
+	font-weight: 400;
+	text-align: center;
+	color: rgba(0,0,0,0.85);
+	line-height: 44rpx;
+}
+/* 充值框 */
+.rechargeMain {
+	width: 666rpx;
+	height: 224rpx;
+	margin: 60rpx 0 0 42rpx;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+/* 每个充值的金额 */
+.rechargeMain .rechargeItem {
+	width: 182rpx;
+	height: 96rpx;
+	opacity: 1;
+	background: #f9f9f9;
+	border-radius: 18rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: CENTER;
+	color: #000000;
+	line-height: 48rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.rechargeMain .rechargeAuto {
+	width: 300rpx;
+	height: 96rpx;
+	opacity: 1;
+	background: #f9f9f9;
+	border-radius: 18rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: CENTER;
+	margin-left: center;
+	color: #000000;
+	line-height: 48rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* 金钱符号公用样式 */
+.text22 {
+	font-size: 24rpx;
+}
+
+/* 自定义 */
+.auto {
+	width: 200rpx;
+	font-size: 24rpx;
+}
+.input {
+	font-size: 24rpx;
+}
+
+/* 选中的充值金额 */
+.isRecharge {
+	border: 4rpx solid #91c43d;
+}
+/* 立即充值 */
+#goRecharge {
+	width: 670rpx;
+	height: 82rpx;
+	opacity: 1;
+	background: #91c43d;
+	border-radius: 66rpx;
+	margin: 322rpx 0 0 40rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC, PingFang SC-Semibold;
+	font-weight: 600;
+	text-align: center;
+	color: #ffffff;
+	line-height: 44rpx;
+}
+.otherCharge{
+	display: flex;
+    justify-content: center;
+    flex: 1;
+}

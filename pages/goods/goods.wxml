@@ -1,0 +1,106 @@
+<import src="../../component/wxParse/wxParse.wxml" />
+<!--商品详情头部轮播图-->
+<!-- 轮播 -->
+<view class="banners">
+  <swiper style="height:100%;" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular bindchange="handlerVideo">
+    <!-- goodsInfo.pictures -->
+    <block wx:if="{{goodsInfo.video}}" wx:key="video">
+      <swiper-item>
+        <video class="imgSty videos" id="myVideo" width="100%" height="100%" src="{{goodsInfo.video}}" controls/>
+      </swiper-item>
+    </block>
+    <block wx:for="{{goodsInfo.pictures}}" wx:key="image">
+      <swiper-item>
+        <view class="swiper-item" style="height:100%;">
+          <image class="imgSty" src="{{item}}"></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<!-- 商品信息 -->
+<view class="goodsInfo">
+  <view class="goodsPriceNums">
+    <view class="price"><text class="text1">￥</text><text class="text2">{{goodsInfo.marketPrice}}</text></view>
+    <view class="originalPrice">￥{{goodsInfo.productPrice}}</view>
+    <view class="soldNum">已售:{{goodsInfo.salesReal}}件</view>
+    <button open-type="share" class="share"><image class="shareImg" src="/image/goods/share.svg"></image></button>
+  </view>
+  <view class="goodsTitles">{{goodsInfo.title}}</view>
+  <view class="goodsDesc">{{goodsInfo.subtitle}}</view>
+</view>
+<!-- 说明 -->
+<view class="explain">
+  <!-- 说明标题 -->
+  <view class="explainTitle">
+    <view class="line"></view>
+    <view class="explainTitleText">
+      鲜<text>丰</text>汇 <text>·</text> 品质优选
+    </view>
+    <view class="line"></view>
+  </view>
+  <!-- 说明内容 -->
+  <view class="explainItem">
+    <view class="leftText">
+      <view class="text1">官方指定平台</view>
+      <view class="text2">江苏省供销合作总社         指定运营平台</view>
+      <!-- <view class="text3">江苏省乡村振兴局　　　　　指定运营平台</view> -->
+    </view>
+    <view class="rightImg">
+      <image src="/image/goods/explain1.svg"></image>
+    </view>
+  </view>
+  <view class="explainItem">
+    <view class="leftText">
+      <view class="text1">物流配送</view>
+      <view class="text3">自营商品快速<text>物流到家</text></view>
+    </view>
+    <view class="rightImg">
+      <image src="/image/goods/explain2.svg"></image>
+    </view>
+  </view>
+  <view class="explainItem" style="border-bottom:none;">
+    <view class="leftText">
+      <view class="text1">质量保障</view>
+      <view class="text3">依托线下<text>成熟供应链</text>体系</view>
+      <view class="text2">让您买的放心</view>
+    </view>
+    <view class="rightImg">
+      <image src="/image/goods/explain3.svg"></image>
+    </view>
+  </view>
+</view>
+<!-- 商品详情 -->
+<view class="details">
+  <!-- <view class="detailsTitle">{{goodsInfo.content}}{{goodsInfo.images}}</view> -->
+  <template is="wxParse" data="{{wxParseData:commodityDetails.nodes}}"/>
+  
+</view>
+
+<!-- 底栏   -->
+<view class="footer">
+  <view class="goIndex centers" bindtap="gotoIndex">
+    <view class="iconIndex icons"> 
+      <image class="imgSty" src="/image/tabBar/indexOff.png"></image>
+    </view>
+    <view class="indexText texts">首页</view>
+  </view>
+  <view class="shoppingCart centers" bindtap="gotoCart">
+    <view class="iconShoppingCart icons">
+      <image class="imgSty" src="/image/tabBar/carOff.png"></image>
+    </view>
+    <view class="shoppingCartText texts">购物车</view>
+    <view class="goodsNum">{{totalBuyCount}}</view>
+  </view>
+  <view class="addShoppingCart" data-info="{{goodsInfo}}" bindtap="addCart">加入购物车</view>
+<!--  <view class="buyNow">立即购买</view>-->
+</view>
+
+<!--悬浮客服按钮-->
+<!-- <view class="suspensionCustomerService"> -->
+  <button class="suspensionCustomerService" open-type="contact" session-from="weapp">
+    <image class="bgImg" src="../../image/goods/customerService.png"></image>
+  </button>
+<!-- </view> -->

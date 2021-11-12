@@ -1,0 +1,142 @@
+<!--pages/applyafterorder/applyafterorder.wxml-->
+<!-- 售后申请 -->
+<!-- 选择商品 -->
+<view class="choiceGoods">
+  <!-- 选择商品标题 -->
+  <view class="title">选择商品</view>
+  <!-- 商品元素 -->
+  <view class="goodsItem" wx:for="{{goodsItems}}" wx:key="goodsItems">
+    <!-- 商品图片 -->
+    <view class="goodsImg"><image class="imgSty" mode="scaleToFill" src="{{item.goodsThumb}}"></image></view>
+    <!-- 商品信息 -->
+    <view class="goodsInfo">
+      <!-- 名称 商品包装数量 -->
+      <view class="topNameNum">
+        <view class="text1">{{item.title}}</view>
+        <view class="text2">x{{item.total}}</view>
+      </view>
+      <!-- 价格 商品购买数量 -->
+      <view class="priceNum">
+        <view class="price">¥{{item.executePrice}}</view>
+        <view class="fluctuate">
+          <view class="cut" bindtap="delRefund" data-item="{{item}}"> <image class="imgSty" mode="scaleToFill" src="/image/applyafterorder/cut.svg"></image> </view>
+          <view class="nums">{{item.quantity}}</view>
+          <view class="add" bindtap="addRefund" data-item="{{item}}"> <image class="imgSty" mode="scaleToFill" src="/image/applyafterorder/add.svg"></image> </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 请选择服务类型 -->
+<view class="servicType">
+  <!-- 标题 -->
+  <view class="title">请选择服务类型</view>
+  <!-- 退款 -->
+  <view class="refund refundPubSyu">
+    <!-- 左边图片 -->
+    <view class="leftImg"><image class="imgSty" mode="scaleToFill" src="/image/applyafterorder/refund.svg"></image></view>
+    <!-- 中间文案 -->
+    <view class="servicTypeText">
+      <view class="text1">仅退款</view>
+      <view class="text2">与客服协商一致或未发货时可以申请</view>
+    </view>
+    <!-- 右边选择 -->
+    <view class="isRadio" data-applyType="REFUND" bindtap="changeApplyType">
+      <image wx:if="{{applyType == 'REFUND'}}" class="imgSty" mode="scaleToFill" src="/image/orderpay/radioActive.svg"></image>
+      <image wx:else class="imgSty" mode="scaleToFill" src="/image/orderpay/radio.svg"></image>
+    </view>
+  </view>
+  <!-- 退货退款 -->
+  <view class="refundGoods refundPubSyu">
+      <!-- 左边图片 -->
+      <view class="leftImg"><image class="imgSty" mode="scaleToFill" src="/image/applyafterorder/refundGoods.svg"></image></view>
+    <!-- 中间文案 -->
+    <view class="servicTypeText">
+      <view class="text1">退款退货</view>
+      <view class="text2">已收到商品如遇到质量问题选择</view>
+    </view>
+    <!-- 右边选择 -->
+    <view class="isRadio" data-applyType="RETURN_GOODS" bindtap="changeApplyType">
+      <image wx:if="{{applyType == 'RETURN_GOODS'}}" class="imgSty" mode="scaleToFill" src="/image/orderpay/radioActive.svg"></image>
+      <image wx:else class="imgSty" mode="scaleToFill" src="/image/orderpay/radio.svg"></image>
+    </view>
+  </view>
+</view>
+
+<!-- 售后原因 -->
+<view class="afterSalesReasons">
+  <view class="title">请填写售后原因</view>
+  <!-- 退款理由 -->
+  <view class="reasonsForRefund" bindtap="showResoneModal">
+    <view class="text1">退款理由 <text>{{reason}}</text> </view>
+    <view class="text2"> 请选择 <view> <image class="imgSty" mode="scaleToFill" src="/image/applyafterorder/rightMore.svg"></image> </view> </view>
+  </view>
+  <!-- 退款金额 -->
+  <view class="priceForRefund">
+    <view class="top">
+      <view class="text1">退款金额 <text>*</text> </view>
+      <view class="text2">{{moneyReturned}}</view>
+    </view>
+    <view class="tips">
+      <view>可修改，最多¥{{orderInfo.price}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 补充描述 -->
+<view class="replenishDesc">
+  <view class="title">补充描述和凭证</view>
+  <!-- 描述凭证 -->
+  <view class="contents">
+    <!-- 输入框 -->
+    <view class="inputsBox">
+      <view class="inputs">
+        <textarea bindblur="reasonRefundInput"  auto-height placeholder="补充描述，有助于商家更好的处理售后问题补充描述，"
+        placeholder-style="color: rgba(60,60,67,0.45);"
+        maxlength="200"/>
+      </view>
+      <view class="textLength">0/200</view>
+    </view>        
+    <view class="imgBoxContent">      
+      <!-- 上传图片显示位置 -->
+      <block wx:for="{{3}}" wx:key="scaleToFill">
+        <view class="imgsBox" wx:if="{{index >= questionPicList.length}}" data-index="{{index}}" bindtap="uploadPhoto">
+          <view class="topIcon"> <image class="imgSty" mode="scaleToFill" src="/image/applyafterorder/upImgIcon.svg"></image></view>
+          <view class="btmText">
+            <view>上传凭证</view>
+            <view>(最多3张)</view>
+          </view>
+        </view>
+        <!-- 有图片关闭 样式-->
+        <view class="closeImgs" wx:else data-index="{{index}}" bindtap="clearImage"> 
+          <view class="imgs"> <image class="imgSty" mode="scaleToFill" src="{{questionPicList[index]}}"></image> </view>
+          <view class="close"> <image class="imgSty" mode="scaleToFill" src="/image/applyafterorder/close.svg"></image> </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+</view>
+
+<!-- 立即提交 -->
+<view class="submits">
+  <view class="submitsBtn" bindtap="submitBtn">
+    立即提交
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='resoneModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <radio-group class="block">
+      <view class="cu-list menu text-left">
+        <view class="cu-item" wx:for="{{resonList}}" wx:key="resonList">
+          <label class="flex justify-between align-center flex-sub" data-value="{{item.reason}}" bindtap="confirmRefund">
+            <view class="flex-sub">{{item.reason}}</view>
+            <radio class="round"></radio>
+          </label>
+        </view>
+      </view>
+    </radio-group>
+  </view>
+</view>

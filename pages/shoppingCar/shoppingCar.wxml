@@ -1,0 +1,41 @@
+<!--购物车-->
+<view class="shopMain">
+	<!-- 商品盒子 -->
+	<view class="goodsItemBox" wx:for="{{shopCart}}" wx:key="goodsCart">
+		<!-- 选中状态 -->
+		<view class="point {{item.isChoosed?'isActive':'unActive'}}" data-goodsinfo="{{item}}" catchtap="chooseCartGoods">
+		</view>
+		<!-- 商品图片 -->
+		<image class="imgPic" src="{{item.goodsThumb}}"></image>
+		<!-- 商品右侧信息 -->
+		<view class="goodsInfoBox">
+			<view class="name">{{item.title}}</view>
+			<view class="price">
+				<!-- 售价 -->
+				<view class="newPrice"><view style="font-size: 24rpx;line-height: 42rpx;">¥</view>{{item.price}}</view>
+				<!-- 原价 -->
+				<view class="oldPrice">¥{{item.productPrice}}</view>
+				<!-- 减少商品 -->
+				<view class="reduce">
+					<image  bindtap="cartDel" data-goodsinfo="{{item}}" src="../../image/shoppingCar/reduce.svg"></image>
+				</view>
+				<!-- 商品数量 -->
+				<view class="num">{{item.total}}</view>
+				<!-- 添加商品 -->
+				<view class="add">
+					<image bindtap="cartAdd" data-goodsinfo="{{item}}" src="../../image/shoppingCar/add.svg"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 结算 -->
+<view class="calculate">
+	<view class="point" catchtap="chooseAllCartGoods">
+		<image src="../../image/shoppingCar/{{!isChoosedAll?'changeGoods.svg':'isPoint.svg'}}"></image>
+	</view>
+	<view class="bothChange" catchtap="chooseAllCartGoods">全选</view>
+	<view class="total">合计：</view>
+	<view class="price"><view style="font-size: 24rpx;margin-top: 5rpx;">¥</view>{{sumPrice}}</view>
+	<button id="payfor" catchtap="topay">去结算</button>
+</view>

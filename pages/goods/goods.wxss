@@ -1,0 +1,353 @@
+/* 轮播盒子 */
+.banners{
+  width: 100%;
+  height: 750rpx;
+}
+/* 商品信息 */
+.goodsInfo{
+  width: 100%;
+  height: 216rpx;
+  background-color: #ffffff;
+  border-top: 1px solid transparent;
+  margin-bottom:16rpx;
+  padding: 0 20rpx;
+}
+/* 商品价格 数量 分享 */
+.goodsInfo .goodsPriceNums{
+  width: 100%;
+  height: 48rpx;
+  margin: 22rpx 0 30rpx 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: start;
+  position: relative;
+}
+/* 商品价格  */
+.goodsInfo .goodsPriceNums .price{
+  margin-right: 16rpx;
+  line-height: 30rpx;
+}
+/* 商品价格 人民币符号 */
+.goodsInfo .goodsPriceNums .price .text1{
+  font-size: 34rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 600;
+  color: #f37920;
+  text-shadow: 0rpx 2rpx 4rpx -4rpx rgba(0,0,0,0.16); 
+}
+/* 商品价格 价格 */
+.goodsInfo .goodsPriceNums .price .text2{
+  font-size: 56rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: 600;
+  color: #f37920;
+  text-shadow: 0rpx 2rpx 4rpx -4rpx rgba(0,0,0,0.16); 
+  margin-left: -8rpx;
+  letter-spacing: -4rpx;
+}
+/* 商品价格 原价 */
+.goodsInfo .goodsPriceNums .originalPrice{
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(60,60,67,0.65);
+  text-decoration: line-through;
+   margin-right: 30rpx;
+}
+/* 已售 */
+.soldNum{
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(60,60,67,0.65);
+}
+/* 分享 */
+.share{
+  width: 48rpx!important;
+  height: 48rpx;
+  position: absolute;
+  right: 0;
+  padding: 0!important;
+}
+.share .shareImg{width: 100%;height: 100%;display: block}
+
+
+/* 商品名称标题 */
+.goodsInfo .goodsTitles{
+  width: 100%;
+  height: 52rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: 600;
+  color: rgba(0,0,0,0.85);
+  line-height: 52rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+/* 商品小标题介绍 */
+.goodsInfo .goodsDesc{
+  width: 100%;
+  height: 40rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: rgba(60,60,67,0.65);
+  line-height: 40rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+/* 说明 */
+.explain{
+  width: 750rpx;
+  height: 674rpx;
+  background-color: #ffffff;
+  margin-bottom: 16rpx;
+}
+/* 说明标题 */
+.explain .explainTitle{
+  width: 100%;
+  height: 130rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ /* 说明标题文案 */
+.explain .explainTitle .explainTitleText{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: bold;
+  color: rgba(0,0,0,0.85);
+}
+.explainTitleText text{
+  color: #91c43d;
+}
+ /* 说明标题线 */
+.explain .explainTitle .line{
+  width: 52rpx;
+  height: 2rpx;
+  background: #c4c4c4;
+}
+
+/* 说明内容 */
+.explain .explainItem{
+  width: 670rpx;
+  height: 173rpx;
+  border-bottom: 1px solid rgba(60,60,67,0.06);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 左边文案 */
+.explain .explainItem .leftText{
+  width: 500rpx;
+  height: 134rpx;
+  padding-left: 30rpx;
+}
+.explain .explainItem .leftText .text1{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: 600;
+  color: #719830;
+  line-height: 44rpx;
+  position: relative;
+}
+.explain .explainItem .leftText .text1::before{
+  content: "";
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: -18rpx;
+  top: 20rpx;
+  background-color: #c4c4c4;
+}
+.explain .explainItem .leftText .text2{
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: 400;
+  color: rgba(60,60,67,0.65);
+  line-height: 40rpx;
+}
+.explain .explainItem .leftText .text3{
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  color: rgba(60,60,67,0.65);
+  line-height: 40rpx;
+}
+.explain .explainItem .leftText .text3 text{font-weight: bold}
+/* 右边图片 */
+.explain .explainItem .rightImg{
+  width: 134rpx;
+  height: 134rpx;
+}
+.explain .explainItem .rightImg image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* 详情 */
+.details{
+  width: 100%;
+  height: 1000rpx;
+}
+/* 详情标题 */
+.details .detailsTitle{
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: 600;
+  color: rgba(0,0,0,0.85);
+  text-indent: 40rpx;
+  background-color: #ffffff;
+}
+
+/* 底栏 */
+.footer{
+  width: 100%;
+  height: 98rpx;
+  position: fixed;
+  bottom: 0;
+  background-color: #ffffff;
+  display: flex; 
+  justify-content: space-around;
+}
+/* 首页 */
+.footer .goIndex{
+  width: 114rpx;
+  height: 98rpx;
+}
+
+/* 购物车 */
+.footer .shoppingCart{
+  width: 114rpx;
+  height: 98rpx;
+  position: relative;
+}
+/* 加入购物车 */
+.footer .addShoppingCart{
+  width: 224rpx;
+  height: 80rpx;
+  background: linear-gradient(90deg,#91c43d 0%, #91c43d 100%);
+  border-radius: 66rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: 600;
+  text-align: CENTER;
+  color: #ffffff;
+  line-height: 80rpx;
+}
+/* 立即购买 */
+.footer .buyNows{
+  width: 224rpx;
+  height: 80rpx;
+  /* background-color: #f37920;
+  border-radius: 66rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Semibold;
+  font-weight: 600;
+  text-align: CENTER;
+  color: #ffffff;
+  line-height: 80rpx; */
+}
+/* 购物车角标 */
+.goodsNum{
+  width: 36rpx;
+  height: 36rpx;
+  background: #ff3b30;
+  border: 2rpx solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 36rpx;
+  color: #ffffff;
+}
+.icons{
+  width: 48rpx;
+  height: 48rpx;
+}
+.centers{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.texts{
+  height: 40rpx;
+  font-size: 20rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  text-align: CENTER;
+  color: rgba(60,60,67,0.65);
+  line-height: 40rpx;
+}
+.imgSty{width: 100%;height: 100%;display: block;}
+
+/* 视频播放的 */
+.videoBox{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.videoModel{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(235, 20, 20, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+.videos{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.models{
+  width: 100%;
+  height: 112rpx;
+  background: linear-gradient(0deg,#c4c4c4 0%, rgba(196,196,196,0.00) 100%);
+  position: relative;
+  bottom: 112rpx;
+
+}
+.suspensionCustomerService{
+  width: 96rpx!important;
+  height: 96rpx;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 15%;
+  right: 28rpx;
+  z-index: 99;
+  padding: 0!important;
+}
+.suspensionCustomerService .bgImg{
+  width:96rpx;
+  height:96rpx;
+}
+.contact_button{
+  color: white;
+  background-color: transparent;
+  padding: 0;
+  line-height: 60rpx;
+  border: none;
+	outline: none;
+	display: flex;
+	flex-direction: column;
+}
+.contact_button::after{
+  border: none;
+}
+
+.wxParse-p>.wxParse-img{display: flex;}

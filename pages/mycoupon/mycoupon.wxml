@@ -1,0 +1,42 @@
+<!--pages/mycoupon/mycoupon.wxml-->
+<!-- 优惠券选择 coupon-->
+<wxs module="getDate" src="../../utils/dateParse.wxs"></wxs>
+<!-- <view class="notUsedCoupon">
+  <view class="leftText">
+    <text class="text">不使用优惠券</text>
+  </view>
+  <view class="isRadio" bindtap="changeRadio" data-isradio="9">
+    <image wx:if="{{isRadio == 9}}" class="imgSty" mode="scaleToFill" src="/image/orderpay/radioActive.svg"></image>
+    <image wx:else class="imgSty"  mode="scaleToFill" src="/image/orderpay/radio.svg"></image>
+  </view>
+</view> -->
+<scroll-view scroll-y="true" style="height: calc(100% -140rpx);" bindscrolltoupper="upper">
+  <!-- 券类型 -->
+  <view class="couponType" wx:for="{{myCoupons}}" wx:key='coupon'>
+    <!-- 是否禁用 -->
+    <view class="isDisable" wx:if="{{item.isUse == 0}}"></view>
+    <!-- 左边券样式 -->
+    <view class="couponSty {{isCouponSty == 1?'powder':'green'}}">
+      <view class="text1 color1"><text>￥</text><text>{{item.productByMoney}}</text></view>
+      <view class="text2 color2">换购券</view>
+    </view>
+    <!-- 中间 券说明-->
+    <view class="couponInfo">
+      <view>{{item.name}}</view>
+      <view>全品类可用</view>
+      <view>{{getDate.getDate(item.couponStartTime)}}-{{getDate.getDate(item.couponEndTime)}}</view>
+    </view>
+    <!-- 右边选择 -->
+    <view class="isRadio" bindtap="changeRadio" data-isradio="{{index}}">
+      <image wx:if="{{choosedCouponId == item.couponId && couponCode == item.couponCode}}" data-item="{{item}}"
+        bindtap="listRadioChange" class="imgSty" mode="scaleToFill" src="/image/orderpay/radioActive.svg"></image>
+      <image wx:else class="imgSty" data-item="{{item}}" bindtap="listRadioChange" mode="scaleToFill"
+        src="/image/orderpay/radio.svg"></image>
+    </view>
+  </view>
+</scroll-view>
+<view class="footer">
+  <view class="ft14">已选择{{shopcouponNum}}张,可抵扣 <text class="ft20 text_red ftWeight">￥{{shopcouponPrice}}</text>
+  </view>
+  <view class="btnOkSty" bindtap="btnOK">确认使用</view>
+</view>

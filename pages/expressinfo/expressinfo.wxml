@@ -1,0 +1,20 @@
+<!-- 物流详情 -->
+<view class="mainBox">
+  <!-- 内层盒子 -->
+  <view class="contnts">
+    <!-- 单个详情元素 -->
+    <view class="items" wx:for="{{logisticsData}}" wx:key="logisticsData">
+      <!-- 状态图片 -->
+      <view class="startImg">
+        <image wx:if="{{item.start == 0}}" src="/image/expressinfo/active.svg"></image>
+        <image wx:else src="/image/expressinfo/def.svg"></image>
+      </view>
+      <!-- 商品状态 -->
+      <view class="title">{{item.status}}</view>
+      <!-- 时间 -->
+      <view class="times">
+        <view class="times1">{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+</view>

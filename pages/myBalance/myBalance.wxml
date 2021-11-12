@@ -1,0 +1,150 @@
+<!--卡充值-->
+<view class="container">
+	<view class="top">
+		<view class="balanceText">当前余额</view>
+		<!-- 余额盒子 -->
+		<view class="balancePriceBox">
+			<view class="page">¥</view>
+			<!-- 余额 -->
+			<view class="balance">{{peopleInfo.balanceData}}</view>
+		</view>
+		<!-- 用户信息 -->
+		<view class="userInfo">
+			<!-- 用户头像 -->
+			<view class="userIcon">
+				<image src="{{peopleInfo.icon}}"></image>
+			</view>
+			<view class="phone">{{peopleInfo.nickName}}</view>
+			<view wx:if="{{peopleInfo.enterpriseId > 0}}" class="type">企业用户</view>
+		</view>
+		<!-- 食堂卡转入 -->
+		<view class="center">
+			<!-- 食堂卡转入 -->
+			<view class="canteenCar" bindtap="onCharge" data-title="食堂卡充值">
+				<view class="bgImg1">
+					<image src="../../image/myBalance/canteen.svg"></image>
+				</view>
+				<view class="canteenText">食堂卡转入</view>
+			</view>
+			<!-- 竖线 -->
+			<view class="centerLine"></view>
+			<!-- 微信转入 -->
+			<view class="wechat" bindtap="onCharge" data-title="微信充值">
+				<view class="bgImg2">
+					<image src="../../image/myBalance/wechatImg.svg"></image>
+				</view>
+				<view class="wechatText">微信充值</view>
+			</view>
+		</view>
+	</view>
+	<!-- 历史记录盒子 -->
+	<view class="rechargeBox">
+		<view class="text">充值历史</view>
+		<!-- 历史记录 -->
+		<view class="history">
+			<!-- 一条充值记录 -->
+			<view class="historyItem" wx:for="{{bills}}" wx:key="bill">
+				<!-- 边框盒 从第二个历史记录开始出现border-top样式，给borderBox添加class:isBorder-->
+				<view class="borderBox">
+					<!-- left -->
+					<view class="leftInfo">
+						<!-- 时间盒子 -->
+						<view class="timeBox">
+							<!-- 日期 -->
+							<view class="data text1">{{item.createTime}}</view>
+							<!-- 具体时间 -->
+							<!--<view class="time text1">10:46</view>-->
+						</view>
+						<!-- 卡号 -->
+						<view class="carNum text1">卡号:{{item.paysn}}</view>
+					</view>
+					<!-- right -->
+					<view class="rightInfo">¥{{item.amount}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 遮罩层 ischange开启 unchange关闭-->
+	<view class="mask unchange"></view>
+	<!-- 绑定食堂卡弹窗 unchange隐藏-->
+	<view class="bindConteen unchange">
+		<!-- 顶部 -->
+		<view class="title">
+			<view class="titleText">绑定食堂卡</view>
+			<!-- 关闭按钮 -->
+			<view class="close">
+				<image src="../../image/myBalance/close.svg"></image>
+			</view>
+		</view>
+		<!-- 卡号 -->
+		<view class="numCarText">卡号</view>
+		<view class="numCarBox">
+			<input type="text" placeholder="输入您需要绑定的卡号" />
+		</view>
+		<!-- 手机号 -->
+		<view class="phoneText">手机号</view>
+		<view class="phoneBox">
+			<input type="text" placeholder="输入您需要绑定的手机号" />
+		</view>
+		<!-- 验证码 -->
+		<view class="codeTextBox">
+			<view class="codeText">验证码</view>
+			<!-- 验证码错误   ischange显示unchange隐藏 -->
+			<view class="codeError unchange">*验证码不正确*</view>
+		</view>
+		<!-- 发送验证码 -->
+		<view class="CodeBox">
+			<input type="text" placeholder="输入手机验证码" />
+			<view class="shotCode">发送验证码</view>
+		</view>
+		<!-- 确认绑定 -->
+		<button id="readyBind">确定绑定</button>
+	</view>
+	
+	<!-- 食堂卡充值 ischange显示 unchange隐藏-->
+	<view class="bindConteen {{change ? 'ischange' : 'unchange'}}">
+		<!-- 顶部 -->
+		<view class="title">
+			<view class="titleText">{{changeTitle}}</view>
+			<!-- 关闭按钮 -->
+			<view class="close" bindtap="onClose">
+				<image src="../../image/myBalance/close.svg"></image>
+			</view>
+		</view>
+		<!-- 可用余额 -->
+		<view class="balanceUseBox" wx:if="{{changeTitle === '食堂卡充值'}}">
+			<view class="balanceText">可用余额:</view>
+			<!-- 余额 -->
+			<view class="money">¥0.00</view>
+		</view>
+		<!-- 充值金额 isRecharge为选中充值的金额-->
+		<view class="rechargeMain">
+			<!-- 每个充值的样式 -->
+			<view bindtap="chargeThis" class="rechargeItem {{changeValue === '10' && !auto ? 'isRecharge' : ''}}" data-value="10">
+				<view class="text22">¥</view>10
+			</view>
+			<view bindtap="chargeThis" class="rechargeItem {{changeValue === '20' && !auto ? 'isRecharge' : ''}}" data-value="20">
+				<view class="text22">¥</view>20
+			</view>
+			<view bindtap="chargeThis" class="rechargeItem {{changeValue === '50' && !auto ? 'isRecharge' : ''}}" data-value="50">
+				<view class="text22">¥</view>50
+			</view>
+			<view bindtap="chargeThis" class="rechargeItem {{changeValue === '100' && !auto ? 'isRecharge' : ''}}" data-value="100">
+				<view class="text22">¥</view>100
+			</view>
+			<view bindtap="chargeThis" class="rechargeItem {{changeValue === '200' && !auto ? 'isRecharge' : ''}}" data-value="200">
+				<view class="text22">¥</view>200
+			</view>
+			<view bindtap="chargeThis" class="rechargeItem {{changeValue === '500' && !auto ? 'isRecharge' : ''}}" data-value="500">
+				<view class="text22">¥</view>500
+			</view>
+			<view class="otherCharge">
+				<view bindtap="chargeAuto" class="rechargeAuto {{auto}}">
+					<view class="auto">自定义¥</view><input bindinput="inputAuto"/>
+				</view>
+			</view>
+		</view>
+		<!-- 立即充值 -->
+		<button id="goRecharge" bindtap="doCharge">立即充值</button>
+	</view>
+</view>

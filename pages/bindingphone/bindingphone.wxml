@@ -1,0 +1,24 @@
+<!--绑定手机号-->
+<!-- 绑定手机号 -->
+<view class="bindPhone">请绑定手机号</view>
+<!-- 绑定备注信息 -->
+<view class="bindPhoneText">如需领取企业福利，请填写公司预留的手机号</view>
+<!-- 请输入手机号框 -->
+<view class="phone">
+	<!-- 区号 -->
+	<view class="areaCode">+86</view>
+	<!-- 输入手机号 -->
+	<input type="text" class="mobilephone" placeholder="请输入手机号" maxlength="11" bindinput="getPhone" value="{{phone}}"/>
+	<button class="getPhone" open-type="getPhoneNumber" bindgetphonenumber="getPhoneToWeChat">获取手机号</button>
+</view>
+<!-- 请输入验证码框 -->
+<view class="code">
+	<!-- 输入验证码 -->
+	<input type="text" class="mobilecode" placeholder="请输入验证码" bindinput="getCode"/>
+	<!-- 获取验证码 -->
+	<button class="getCode" catchtap="getSendCode" disabled="{{sending}}">{{sendCodeText}}</button>
+</view>
+<!-- 完成绑定按钮 -->
+<button id="bindBtn" class="bindBtn" bindtap="getPhoneNumber">完成绑定</button>
+<!-- 未注册信息 -->
+<view class="bindInfo">若手机号尚未注册，登录时将自动注册账号</view>
